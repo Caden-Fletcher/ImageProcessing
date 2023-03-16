@@ -40,21 +40,21 @@
             // 
             PictureUnaltered.Location = new Point(12, 12);
             PictureUnaltered.Name = "PictureUnaltered";
-            PictureUnaltered.Size = new Size(300, 300);
+            PictureUnaltered.Size = new Size(400, 400);
             PictureUnaltered.TabIndex = 0;
             PictureUnaltered.TabStop = false;
             // 
             // PictureAltered
             // 
-            PictureAltered.Location = new Point(488, 12);
+            PictureAltered.Location = new Point(418, 12);
             PictureAltered.Name = "PictureAltered";
-            PictureAltered.Size = new Size(300, 300);
+            PictureAltered.Size = new Size(400, 400);
             PictureAltered.TabIndex = 1;
             PictureAltered.TabStop = false;
             // 
             // ButtonBrowse
             // 
-            ButtonBrowse.Location = new Point(12, 318);
+            ButtonBrowse.Location = new Point(12, 418);
             ButtonBrowse.Name = "ButtonBrowse";
             ButtonBrowse.Size = new Size(75, 23);
             ButtonBrowse.TabIndex = 2;
@@ -64,7 +64,7 @@
             // 
             // ButtonConvertToGrayscale
             // 
-            ButtonConvertToGrayscale.Location = new Point(488, 318);
+            ButtonConvertToGrayscale.Location = new Point(418, 418);
             ButtonConvertToGrayscale.Name = "ButtonConvertToGrayscale";
             ButtonConvertToGrayscale.Size = new Size(139, 23);
             ButtonConvertToGrayscale.TabIndex = 3;
@@ -76,7 +76,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(834, 469);
             Controls.Add(ButtonConvertToGrayscale);
             Controls.Add(ButtonBrowse);
             Controls.Add(PictureAltered);
