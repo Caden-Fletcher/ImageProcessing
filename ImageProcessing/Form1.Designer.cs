@@ -32,6 +32,7 @@
             PictureAltered = new PictureBox();
             ButtonBrowse = new Button();
             ButtonConvertToGrayscale = new Button();
+            ButtonSaveImage = new Button();
             ((System.ComponentModel.ISupportInitialize)PictureUnaltered).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureAltered).BeginInit();
             SuspendLayout();
@@ -72,11 +73,22 @@
             ButtonConvertToGrayscale.UseVisualStyleBackColor = true;
             ButtonConvertToGrayscale.Click += ButtonConvertToGrayscale_Click;
             // 
+            // ButtonSaveImage
+            // 
+            ButtonSaveImage.Location = new Point(418, 447);
+            ButtonSaveImage.Name = "ButtonSaveImage";
+            ButtonSaveImage.Size = new Size(139, 23);
+            ButtonSaveImage.TabIndex = 4;
+            ButtonSaveImage.Text = "Save Image";
+            ButtonSaveImage.UseVisualStyleBackColor = true;
+            ButtonSaveImage.Click += ButtonSaveImage_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(834, 469);
+            ClientSize = new Size(834, 477);
+            Controls.Add(ButtonSaveImage);
             Controls.Add(ButtonConvertToGrayscale);
             Controls.Add(ButtonBrowse);
             Controls.Add(PictureAltered);
@@ -94,5 +106,6 @@
         private PictureBox PictureAltered;
         private Button ButtonBrowse;
         private Button ButtonConvertToGrayscale;
+        private Button ButtonSaveImage;
     }
 }

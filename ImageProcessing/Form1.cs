@@ -48,5 +48,16 @@ namespace ImageProcessing
                 }
             }
         }
+
+        private void ButtonSaveImage_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "JPG(*.JPG)|*.jpg";
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                PictureAltered.Image.Save(saveFile.FileName); // Save the image from the processed image section
+            }
+        }
     }
 }
