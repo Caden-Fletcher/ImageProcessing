@@ -52,7 +52,7 @@ namespace ImageProcessing
         private void ButtonSaveImage_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFile = new SaveFileDialog();
-            saveFile.Filter = "JPG(*.JPG)|*.jpg";
+            saveFile.Filter = "JPG(*.JPG)|*.jpg|PNG(*.PNG)|*.png";
 
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
