@@ -9,15 +9,23 @@ namespace ImageProcessing
             InitializeComponent();
         }
 
-        private void ButtonBrowse_Click(object sender, EventArgs e) // Import Image
+        private void ButtonImport_Click(object sender, EventArgs e) // Import Image
         {
             OpenFileDialog openFile = new OpenFileDialog();
 
-            if (openFile.ShowDialog() == DialogResult.OK)
+            try
             {
-                PictureUnaltered.Image = new Bitmap(openFile.FileName);
-                PictureAltered.Image = new Bitmap(openFile.FileName);
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    PictureUnaltered.Image = new Bitmap(openFile.FileName);
+                    PictureAltered.Image = new Bitmap(openFile.FileName);
+                }
             }
+            catch
+            {
+                MessageBox.Show("Incompatible Extension", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void ButtonConvertToGrayscale_Click(object sender, EventArgs e) // Convert Image to Grayscale
@@ -49,7 +57,7 @@ namespace ImageProcessing
             }
         }
 
-        private void ButtonSaveImage_Click(object sender, EventArgs e)
+        private void ButtonExport_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.Filter = "GIF(*.GIF)|*.gif|" +
@@ -59,7 +67,7 @@ namespace ImageProcessing
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
                 PictureAltered.Image.Save(saveFile.FileName); // Save the image from the processed image section
-            }
+            }     
         }
     }
 }

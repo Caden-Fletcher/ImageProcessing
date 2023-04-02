@@ -30,15 +30,17 @@
         {
             PictureUnaltered = new PictureBox();
             PictureAltered = new PictureBox();
-            ButtonBrowse = new Button();
+            ButtonImport = new Button();
             ButtonConvertToGrayscale = new Button();
-            ButtonSaveImage = new Button();
+            ButtonExport = new Button();
+            viewFrames = new ListView();
             ((System.ComponentModel.ISupportInitialize)PictureUnaltered).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureAltered).BeginInit();
             SuspendLayout();
             // 
             // PictureUnaltered
             // 
+            PictureUnaltered.BackColor = SystemColors.AppWorkspace;
             PictureUnaltered.Location = new Point(12, 12);
             PictureUnaltered.Name = "PictureUnaltered";
             PictureUnaltered.Size = new Size(400, 400);
@@ -47,21 +49,22 @@
             // 
             // PictureAltered
             // 
+            PictureAltered.BackColor = SystemColors.AppWorkspace;
             PictureAltered.Location = new Point(418, 12);
             PictureAltered.Name = "PictureAltered";
             PictureAltered.Size = new Size(400, 400);
             PictureAltered.TabIndex = 1;
             PictureAltered.TabStop = false;
             // 
-            // ButtonBrowse
+            // ButtonImport
             // 
-            ButtonBrowse.Location = new Point(12, 418);
-            ButtonBrowse.Name = "ButtonBrowse";
-            ButtonBrowse.Size = new Size(75, 23);
-            ButtonBrowse.TabIndex = 2;
-            ButtonBrowse.Text = "Browse";
-            ButtonBrowse.UseVisualStyleBackColor = true;
-            ButtonBrowse.Click += ButtonBrowse_Click;
+            ButtonImport.Location = new Point(12, 418);
+            ButtonImport.Name = "ButtonImport";
+            ButtonImport.Size = new Size(75, 23);
+            ButtonImport.TabIndex = 2;
+            ButtonImport.Text = "Import";
+            ButtonImport.UseVisualStyleBackColor = true;
+            ButtonImport.Click += ButtonImport_Click;
             // 
             // ButtonConvertToGrayscale
             // 
@@ -73,27 +76,38 @@
             ButtonConvertToGrayscale.UseVisualStyleBackColor = true;
             ButtonConvertToGrayscale.Click += ButtonConvertToGrayscale_Click;
             // 
-            // ButtonSaveImage
+            // ButtonExport
             // 
-            ButtonSaveImage.Location = new Point(418, 447);
-            ButtonSaveImage.Name = "ButtonSaveImage";
-            ButtonSaveImage.Size = new Size(139, 23);
-            ButtonSaveImage.TabIndex = 4;
-            ButtonSaveImage.Text = "Save Image";
-            ButtonSaveImage.UseVisualStyleBackColor = true;
-            ButtonSaveImage.Click += ButtonSaveImage_Click;
+            ButtonExport.Location = new Point(418, 447);
+            ButtonExport.Name = "ButtonExport";
+            ButtonExport.Size = new Size(139, 23);
+            ButtonExport.TabIndex = 4;
+            ButtonExport.Text = "Export";
+            ButtonExport.UseVisualStyleBackColor = true;
+            ButtonExport.Click += ButtonExport_Click;
+            // 
+            // viewFrames
+            // 
+            viewFrames.BackColor = SystemColors.AppWorkspace;
+            viewFrames.Location = new Point(824, 12);
+            viewFrames.Name = "viewFrames";
+            viewFrames.Size = new Size(200, 400);
+            viewFrames.TabIndex = 5;
+            viewFrames.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(834, 477);
-            Controls.Add(ButtonSaveImage);
+            ClientSize = new Size(1038, 477);
+            Controls.Add(viewFrames);
+            Controls.Add(ButtonExport);
             Controls.Add(ButtonConvertToGrayscale);
-            Controls.Add(ButtonBrowse);
+            Controls.Add(ButtonImport);
             Controls.Add(PictureAltered);
             Controls.Add(PictureUnaltered);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Image Processor";
             ((System.ComponentModel.ISupportInitialize)PictureUnaltered).EndInit();
             ((System.ComponentModel.ISupportInitialize)PictureAltered).EndInit();
@@ -104,8 +118,9 @@
 
         private PictureBox PictureUnaltered;
         private PictureBox PictureAltered;
-        private Button ButtonBrowse;
+        private Button ButtonImport;
         private Button ButtonConvertToGrayscale;
-        private Button ButtonSaveImage;
+        private Button ButtonExport;
+        private ListView viewFrames;
     }
 }
