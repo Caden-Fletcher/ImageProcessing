@@ -1,9 +1,12 @@
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 namespace ImageProcessing
 {
     public partial class Form1 : Form
     {
+        ImageList imageList = new ImageList();
+
         public Form1()
         {
             InitializeComponent();
@@ -67,7 +70,35 @@ namespace ImageProcessing
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
                 PictureAltered.Image.Save(saveFile.FileName); // Save the image from the processed image section
-            }     
+            }
+        }
+
+        private void buttonRetrieveFrames_Click(object sender, EventArgs e)
+        {
+            FrameDimension frameDimension = new FrameDimension(PictureUnaltered.Image.FrameDimensionsList[0]);
+
+            int frameCount = PictureUnaltered.Image.GetFrameCount(frameDimension);
+            labelFrames.Text = "Frames: " + frameCount.ToString(); // Display how many frames are in the image
+
+            for (int i = 0; i < frameCount; i++)
+            {
+                PictureUnaltered.Image.SelectActiveFrame(new FrameDimension(PictureUnaltered.Image.FrameDimensionsList[0]), i); // Retrieve all frames
+                imageList.ImageSize = new Size(256, 100);
+
+                viewFrames.LargeImageList = imageList;
+                imageList.Images.Add(PictureUnaltered.Image);
+
+                ListViewItem item = new ListViewItem();
+                item.ImageIndex = i;
+                viewFrames.Items.Add(item);
+            }
+        }
+
+        private void buttonClearFrames_Click(object sender, EventArgs e)
+        {
+            labelFrames.Text = "Frames: 0";
+            viewFrames.Items.Clear(); // Clears the stored frames, otherwise the original image frames will still populate the list
+            imageList.Images.Clear();
         }
     }
 }

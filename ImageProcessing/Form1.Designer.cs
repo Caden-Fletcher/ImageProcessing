@@ -34,25 +34,34 @@
             ButtonConvertToGrayscale = new Button();
             ButtonExport = new Button();
             viewFrames = new ListView();
+            labelFrames = new Label();
+            buttonRetrieveFrames = new Button();
+            buttonClearFrames = new Button();
             ((System.ComponentModel.ISupportInitialize)PictureUnaltered).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureAltered).BeginInit();
             SuspendLayout();
             // 
             // PictureUnaltered
             // 
-            PictureUnaltered.BackColor = SystemColors.AppWorkspace;
+            PictureUnaltered.BackColor = Color.FromArgb(224, 224, 224);
+            PictureUnaltered.BackgroundImageLayout = ImageLayout.Stretch;
+            PictureUnaltered.BorderStyle = BorderStyle.FixedSingle;
             PictureUnaltered.Location = new Point(12, 12);
             PictureUnaltered.Name = "PictureUnaltered";
             PictureUnaltered.Size = new Size(400, 400);
+            PictureUnaltered.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureUnaltered.TabIndex = 0;
             PictureUnaltered.TabStop = false;
             // 
             // PictureAltered
             // 
-            PictureAltered.BackColor = SystemColors.AppWorkspace;
+            PictureAltered.BackColor = Color.FromArgb(224, 224, 224);
+            PictureAltered.BackgroundImageLayout = ImageLayout.Stretch;
+            PictureAltered.BorderStyle = BorderStyle.FixedSingle;
             PictureAltered.Location = new Point(418, 12);
             PictureAltered.Name = "PictureAltered";
             PictureAltered.Size = new Size(400, 400);
+            PictureAltered.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureAltered.TabIndex = 1;
             PictureAltered.TabStop = false;
             // 
@@ -88,18 +97,52 @@
             // 
             // viewFrames
             // 
-            viewFrames.BackColor = SystemColors.AppWorkspace;
+            viewFrames.BackColor = Color.FromArgb(224, 224, 224);
+            viewFrames.BorderStyle = BorderStyle.FixedSingle;
             viewFrames.Location = new Point(824, 12);
             viewFrames.Name = "viewFrames";
-            viewFrames.Size = new Size(200, 400);
+            viewFrames.Size = new Size(300, 400);
             viewFrames.TabIndex = 5;
             viewFrames.UseCompatibleStateImageBehavior = false;
+            // 
+            // labelFrames
+            // 
+            labelFrames.AutoSize = true;
+            labelFrames.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelFrames.Location = new Point(824, 418);
+            labelFrames.Name = "labelFrames";
+            labelFrames.Size = new Size(77, 21);
+            labelFrames.TabIndex = 6;
+            labelFrames.Text = "Frames: 0";
+            // 
+            // buttonRetrieveFrames
+            // 
+            buttonRetrieveFrames.Location = new Point(824, 447);
+            buttonRetrieveFrames.Name = "buttonRetrieveFrames";
+            buttonRetrieveFrames.Size = new Size(139, 23);
+            buttonRetrieveFrames.TabIndex = 7;
+            buttonRetrieveFrames.Text = "Retrieve Frames";
+            buttonRetrieveFrames.UseVisualStyleBackColor = true;
+            buttonRetrieveFrames.Click += buttonRetrieveFrames_Click;
+            // 
+            // buttonClearFrames
+            // 
+            buttonClearFrames.Location = new Point(824, 476);
+            buttonClearFrames.Name = "buttonClearFrames";
+            buttonClearFrames.Size = new Size(139, 23);
+            buttonClearFrames.TabIndex = 8;
+            buttonClearFrames.Text = "Clear Frames";
+            buttonClearFrames.UseVisualStyleBackColor = true;
+            buttonClearFrames.Click += buttonClearFrames_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1038, 477);
+            ClientSize = new Size(1138, 505);
+            Controls.Add(buttonClearFrames);
+            Controls.Add(buttonRetrieveFrames);
+            Controls.Add(labelFrames);
             Controls.Add(viewFrames);
             Controls.Add(ButtonExport);
             Controls.Add(ButtonConvertToGrayscale);
@@ -112,6 +155,7 @@
             ((System.ComponentModel.ISupportInitialize)PictureUnaltered).EndInit();
             ((System.ComponentModel.ISupportInitialize)PictureAltered).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -122,5 +166,8 @@
         private Button ButtonConvertToGrayscale;
         private Button ButtonExport;
         private ListView viewFrames;
+        private Label labelFrames;
+        private Button buttonRetrieveFrames;
+        private Button buttonClearFrames;
     }
 }
