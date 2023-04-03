@@ -96,9 +96,41 @@ namespace ImageProcessing
 
         private void buttonClearFrames_Click(object sender, EventArgs e)
         {
+            PictureAltered.Image = PictureUnaltered.Image;
             labelFrames.Text = "Frames: 0";
             viewFrames.Items.Clear(); // Clears the stored frames, otherwise the original image frames will still populate the list
             imageList.Images.Clear();
+        }
+
+        private void viewFrames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (0 < viewFrames.SelectedItems.Count)
+            {
+                var item = viewFrames.SelectedItems[0];
+                Image image = imageList.Images[item.ImageIndex];
+                PictureAltered.Image = image;
+            }
+        }
+
+        private void buttonExportFrames_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            DialogResult dialogResult = dialog.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                string filePath = dialog.SelectedPath;
+                int index = 1;
+
+                foreach (Image image in imageList.Images)
+                {
+                    string path = Path.Combine(filePath, string.Format("Sprite-{0}.png", index));
+                    image.Save(path);
+                    index++;
+                }
+
+                MessageBox.Show("Frames exported successfully!");
+            }
         }
     }
 }

@@ -37,6 +37,7 @@
             labelFrames = new Label();
             buttonRetrieveFrames = new Button();
             buttonClearFrames = new Button();
+            buttonExportFrames = new Button();
             ((System.ComponentModel.ISupportInitialize)PictureUnaltered).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureAltered).BeginInit();
             SuspendLayout();
@@ -44,24 +45,22 @@
             // PictureUnaltered
             // 
             PictureUnaltered.BackColor = Color.FromArgb(224, 224, 224);
-            PictureUnaltered.BackgroundImageLayout = ImageLayout.Stretch;
             PictureUnaltered.BorderStyle = BorderStyle.FixedSingle;
             PictureUnaltered.Location = new Point(12, 12);
             PictureUnaltered.Name = "PictureUnaltered";
             PictureUnaltered.Size = new Size(400, 400);
-            PictureUnaltered.SizeMode = PictureBoxSizeMode.StretchImage;
+            PictureUnaltered.SizeMode = PictureBoxSizeMode.CenterImage;
             PictureUnaltered.TabIndex = 0;
             PictureUnaltered.TabStop = false;
             // 
             // PictureAltered
             // 
             PictureAltered.BackColor = Color.FromArgb(224, 224, 224);
-            PictureAltered.BackgroundImageLayout = ImageLayout.Stretch;
             PictureAltered.BorderStyle = BorderStyle.FixedSingle;
             PictureAltered.Location = new Point(418, 12);
             PictureAltered.Name = "PictureAltered";
             PictureAltered.Size = new Size(400, 400);
-            PictureAltered.SizeMode = PictureBoxSizeMode.StretchImage;
+            PictureAltered.SizeMode = PictureBoxSizeMode.CenterImage;
             PictureAltered.TabIndex = 1;
             PictureAltered.TabStop = false;
             // 
@@ -104,6 +103,7 @@
             viewFrames.Size = new Size(300, 400);
             viewFrames.TabIndex = 5;
             viewFrames.UseCompatibleStateImageBehavior = false;
+            viewFrames.SelectedIndexChanged += viewFrames_SelectedIndexChanged;
             // 
             // labelFrames
             // 
@@ -135,11 +135,22 @@
             buttonClearFrames.UseVisualStyleBackColor = true;
             buttonClearFrames.Click += buttonClearFrames_Click;
             // 
+            // buttonExportFrames
+            // 
+            buttonExportFrames.Location = new Point(824, 505);
+            buttonExportFrames.Name = "buttonExportFrames";
+            buttonExportFrames.Size = new Size(139, 23);
+            buttonExportFrames.TabIndex = 9;
+            buttonExportFrames.Text = "Export Frames";
+            buttonExportFrames.UseVisualStyleBackColor = true;
+            buttonExportFrames.Click += buttonExportFrames_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1138, 505);
+            ClientSize = new Size(1138, 535);
+            Controls.Add(buttonExportFrames);
             Controls.Add(buttonClearFrames);
             Controls.Add(buttonRetrieveFrames);
             Controls.Add(labelFrames);
@@ -169,5 +180,6 @@
         private Label labelFrames;
         private Button buttonRetrieveFrames;
         private Button buttonClearFrames;
+        private Button buttonExportFrames;
     }
 }
