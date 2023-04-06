@@ -12,23 +12,6 @@ namespace ImageProcessing
             InitializeComponent();
         }
 
-        private void ButtonImport_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFile = new OpenFileDialog();
-
-            try
-            {
-                if (openFile.ShowDialog() == DialogResult.OK)
-                {
-                    ViewPort.Image = new Bitmap(openFile.FileName);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Incompatible Extension", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void ProcessImage(Bitmap bmp) // Convert Image to Grayscale
         {
             for (int i = 0; i < bmp.Width; i++)
