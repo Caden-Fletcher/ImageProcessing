@@ -12,7 +12,7 @@ namespace ImageProcessing
             InitializeComponent();
         }
 
-        private void ButtonImport_Click(object sender, EventArgs e) // Import Image
+        private void ButtonImport_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
 
@@ -31,14 +31,14 @@ namespace ImageProcessing
 
         }
 
-        private void ButtonConvertToGrayscale_Click(object sender, EventArgs e) // Convert Image to Grayscale
+        private void ButtonConvertToGrayscale_Click(object sender, EventArgs e)
         {
             Bitmap copyBitmap = new Bitmap((Bitmap)PictureAltered.Image);
             ProcessImage(copyBitmap);
             PictureAltered.Image = copyBitmap;
         }
 
-        private void ProcessImage(Bitmap bmp)
+        private void ProcessImage(Bitmap bmp) // Convert Image to Grayscale
         {
             for (int i = 0; i < bmp.Width; i++)
             {
@@ -63,9 +63,10 @@ namespace ImageProcessing
         private void ButtonExport_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFile = new SaveFileDialog();
-            saveFile.Filter = "GIF(*.GIF)|*.gif|" +
-                              "JPG(*.JPG)|*.jpg|" +
-                              "PNG(*.PNG)|*.png";
+            saveFile.Filter = "BMP(*.bmp)|*.bmp|" +
+                              "GIF(*.gif)|*.gif|" +
+                              "JPEG(*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+                              "PNG(*.png)|*.png";
 
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
