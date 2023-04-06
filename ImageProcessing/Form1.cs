@@ -20,22 +20,13 @@ namespace ImageProcessing
             {
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
-                    PictureUnaltered.Image = new Bitmap(openFile.FileName);
-                    PictureAltered.Image = new Bitmap(openFile.FileName);
+                    ViewPort.Image = new Bitmap(openFile.FileName);
                 }
             }
             catch
             {
                 MessageBox.Show("Incompatible Extension", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-        }
-
-        private void ButtonConvertToGrayscale_Click(object sender, EventArgs e)
-        {
-            Bitmap copyBitmap = new Bitmap((Bitmap)PictureAltered.Image);
-            ProcessImage(copyBitmap);
-            PictureAltered.Image = copyBitmap;
         }
 
         private void ProcessImage(Bitmap bmp) // Convert Image to Grayscale
@@ -60,34 +51,20 @@ namespace ImageProcessing
             }
         }
 
-        private void ButtonExport_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFile = new SaveFileDialog();
-            saveFile.Filter = "BMP(*.bmp)|*.bmp|" +
-                              "GIF(*.gif)|*.gif|" +
-                              "JPEG(*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-                              "PNG(*.png)|*.png";
-
-            if (saveFile.ShowDialog() == DialogResult.OK)
-            {
-                PictureAltered.Image.Save(saveFile.FileName); // Save the image from the processed image section
-            }
-        }
-
         private void buttonRetrieveFrames_Click(object sender, EventArgs e)
         {
-            FrameDimension frameDimension = new FrameDimension(PictureUnaltered.Image.FrameDimensionsList[0]);
+            FrameDimension frameDimension = new FrameDimension(ViewPort.Image.FrameDimensionsList[0]);
 
-            int frameCount = PictureUnaltered.Image.GetFrameCount(frameDimension);
+            int frameCount = ViewPort.Image.GetFrameCount(frameDimension);
             labelFrames.Text = "Frames: " + frameCount.ToString(); // Display how many frames are in the image
 
             for (int i = 0; i < frameCount; i++)
             {
-                PictureUnaltered.Image.SelectActiveFrame(new FrameDimension(PictureUnaltered.Image.FrameDimensionsList[0]), i); // Retrieve all frames
+                ViewPort.Image.SelectActiveFrame(new FrameDimension(ViewPort.Image.FrameDimensionsList[0]), i); // Retrieve all frames
                 imageList.ImageSize = new Size(256, 100);
 
                 viewFrames.LargeImageList = imageList;
-                imageList.Images.Add(PictureUnaltered.Image);
+                imageList.Images.Add(ViewPort.Image);
 
                 ListViewItem item = new ListViewItem();
                 item.ImageIndex = i;
@@ -97,7 +74,6 @@ namespace ImageProcessing
 
         private void buttonClearFrames_Click(object sender, EventArgs e)
         {
-            PictureAltered.Image = PictureUnaltered.Image;
             labelFrames.Text = "Frames: 0";
             viewFrames.Items.Clear(); // Clears the stored frames, otherwise the original image frames will still populate the list
             imageList.Images.Clear();
@@ -109,7 +85,7 @@ namespace ImageProcessing
             {
                 var item = viewFrames.SelectedItems[0];
                 Image image = imageList.Images[item.ImageIndex];
-                PictureAltered.Image = image;
+                ViewPort.Image = image;
             }
         }
 
@@ -137,6 +113,45 @@ namespace ImageProcessing
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+
+            try
+            {
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    ViewPort.Image = new Bitmap(openFile.FileName);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Incompatible Extension", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter =
+                "Bitmap(*.bmp)|*.bmp|" +
+                "GIF(*.gif)|*.gif|" +
+                "JPEG(*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+                "PNG(*.png)|*.png";
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                ViewPort.Image.Save(saveFile.FileName);
+            }
+        }
+
+        private void convertToGrayscaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap copyBitmap = new Bitmap((Bitmap)ViewPort.Image);
+            ProcessImage(copyBitmap);
+            ViewPort.Image = copyBitmap;
         }
     }
 }
