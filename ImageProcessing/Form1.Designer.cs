@@ -38,15 +38,33 @@
             buttonRetrieveFrames = new Button();
             buttonClearFrames = new Button();
             buttonExportFrames = new Button();
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            newToolStripMenuItem = new ToolStripMenuItem();
+            openToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator2 = new ToolStripSeparator();
+            saveToolStripMenuItem = new ToolStripMenuItem();
+            saveAsToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator3 = new ToolStripSeparator();
+            quitToolStripMenuItem = new ToolStripMenuItem();
+            imageToolStripMenuItem = new ToolStripMenuItem();
+            convertToGrayscaleToolStripMenuItem = new ToolStripMenuItem();
+            transformToolStripMenuItem = new ToolStripMenuItem();
+            flipHorizontallyToolStripMenuItem = new ToolStripMenuItem();
+            flipVerticallyToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            rotate90ToolStripMenuItem1 = new ToolStripMenuItem();
+            rotate90ToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)PictureUnaltered).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureAltered).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // PictureUnaltered
             // 
             PictureUnaltered.BackColor = Color.FromArgb(224, 224, 224);
             PictureUnaltered.BorderStyle = BorderStyle.FixedSingle;
-            PictureUnaltered.Location = new Point(12, 12);
+            PictureUnaltered.Location = new Point(9, 44);
             PictureUnaltered.Name = "PictureUnaltered";
             PictureUnaltered.Size = new Size(400, 400);
             PictureUnaltered.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -57,7 +75,7 @@
             // 
             PictureAltered.BackColor = Color.FromArgb(224, 224, 224);
             PictureAltered.BorderStyle = BorderStyle.FixedSingle;
-            PictureAltered.Location = new Point(418, 12);
+            PictureAltered.Location = new Point(415, 44);
             PictureAltered.Name = "PictureAltered";
             PictureAltered.Size = new Size(400, 400);
             PictureAltered.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -66,7 +84,7 @@
             // 
             // ButtonImport
             // 
-            ButtonImport.Location = new Point(12, 418);
+            ButtonImport.Location = new Point(9, 450);
             ButtonImport.Name = "ButtonImport";
             ButtonImport.Size = new Size(75, 23);
             ButtonImport.TabIndex = 2;
@@ -76,7 +94,7 @@
             // 
             // ButtonConvertToGrayscale
             // 
-            ButtonConvertToGrayscale.Location = new Point(418, 418);
+            ButtonConvertToGrayscale.Location = new Point(415, 450);
             ButtonConvertToGrayscale.Name = "ButtonConvertToGrayscale";
             ButtonConvertToGrayscale.Size = new Size(139, 23);
             ButtonConvertToGrayscale.TabIndex = 3;
@@ -86,7 +104,7 @@
             // 
             // ButtonExport
             // 
-            ButtonExport.Location = new Point(418, 447);
+            ButtonExport.Location = new Point(415, 479);
             ButtonExport.Name = "ButtonExport";
             ButtonExport.Size = new Size(139, 23);
             ButtonExport.TabIndex = 4;
@@ -98,7 +116,7 @@
             // 
             viewFrames.BackColor = Color.FromArgb(224, 224, 224);
             viewFrames.BorderStyle = BorderStyle.FixedSingle;
-            viewFrames.Location = new Point(824, 12);
+            viewFrames.Location = new Point(821, 44);
             viewFrames.Name = "viewFrames";
             viewFrames.Size = new Size(300, 400);
             viewFrames.TabIndex = 5;
@@ -109,7 +127,7 @@
             // 
             labelFrames.AutoSize = true;
             labelFrames.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelFrames.Location = new Point(824, 418);
+            labelFrames.Location = new Point(821, 450);
             labelFrames.Name = "labelFrames";
             labelFrames.Size = new Size(77, 21);
             labelFrames.TabIndex = 6;
@@ -117,7 +135,7 @@
             // 
             // buttonRetrieveFrames
             // 
-            buttonRetrieveFrames.Location = new Point(824, 447);
+            buttonRetrieveFrames.Location = new Point(821, 479);
             buttonRetrieveFrames.Name = "buttonRetrieveFrames";
             buttonRetrieveFrames.Size = new Size(139, 23);
             buttonRetrieveFrames.TabIndex = 7;
@@ -127,7 +145,7 @@
             // 
             // buttonClearFrames
             // 
-            buttonClearFrames.Location = new Point(824, 476);
+            buttonClearFrames.Location = new Point(821, 508);
             buttonClearFrames.Name = "buttonClearFrames";
             buttonClearFrames.Size = new Size(139, 23);
             buttonClearFrames.TabIndex = 8;
@@ -137,7 +155,7 @@
             // 
             // buttonExportFrames
             // 
-            buttonExportFrames.Location = new Point(824, 505);
+            buttonExportFrames.Location = new Point(821, 537);
             buttonExportFrames.Name = "buttonExportFrames";
             buttonExportFrames.Size = new Size(139, 23);
             buttonExportFrames.TabIndex = 9;
@@ -145,11 +163,121 @@
             buttonExportFrames.UseVisualStyleBackColor = true;
             buttonExportFrames.Click += buttonExportFrames_Click;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, imageToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1138, 24);
+            menuStrip1.TabIndex = 10;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, openToolStripMenuItem, toolStripSeparator2, saveToolStripMenuItem, saveAsToolStripMenuItem, toolStripSeparator3, quitToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(37, 20);
+            fileToolStripMenuItem.Text = "File";
+            // 
+            // newToolStripMenuItem
+            // 
+            newToolStripMenuItem.Name = "newToolStripMenuItem";
+            newToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.N;
+            newToolStripMenuItem.Size = new Size(146, 22);
+            newToolStripMenuItem.Text = "New";
+            // 
+            // openToolStripMenuItem
+            // 
+            openToolStripMenuItem.Name = "openToolStripMenuItem";
+            openToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
+            openToolStripMenuItem.Size = new Size(146, 22);
+            openToolStripMenuItem.Text = "Open";
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(143, 6);
+            // 
+            // saveToolStripMenuItem
+            // 
+            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            saveToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.S;
+            saveToolStripMenuItem.Size = new Size(146, 22);
+            saveToolStripMenuItem.Text = "Save";
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            saveAsToolStripMenuItem.Size = new Size(146, 22);
+            saveAsToolStripMenuItem.Text = "Save As";
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(143, 6);
+            // 
+            // quitToolStripMenuItem
+            // 
+            quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            quitToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Q;
+            quitToolStripMenuItem.Size = new Size(146, 22);
+            quitToolStripMenuItem.Text = "Quit";
+            quitToolStripMenuItem.Click += quitToolStripMenuItem_Click;
+            // 
+            // imageToolStripMenuItem
+            // 
+            imageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { convertToGrayscaleToolStripMenuItem, transformToolStripMenuItem });
+            imageToolStripMenuItem.Name = "imageToolStripMenuItem";
+            imageToolStripMenuItem.Size = new Size(52, 20);
+            imageToolStripMenuItem.Text = "Image";
+            // 
+            // convertToGrayscaleToolStripMenuItem
+            // 
+            convertToGrayscaleToolStripMenuItem.Name = "convertToGrayscaleToolStripMenuItem";
+            convertToGrayscaleToolStripMenuItem.Size = new Size(183, 22);
+            convertToGrayscaleToolStripMenuItem.Text = "Convert to Grayscale";
+            // 
+            // transformToolStripMenuItem
+            // 
+            transformToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { flipHorizontallyToolStripMenuItem, flipVerticallyToolStripMenuItem, toolStripSeparator1, rotate90ToolStripMenuItem, rotate90ToolStripMenuItem1 });
+            transformToolStripMenuItem.Name = "transformToolStripMenuItem";
+            transformToolStripMenuItem.Size = new Size(183, 22);
+            transformToolStripMenuItem.Text = "Transform";
+            // 
+            // flipHorizontallyToolStripMenuItem
+            // 
+            flipHorizontallyToolStripMenuItem.Name = "flipHorizontallyToolStripMenuItem";
+            flipHorizontallyToolStripMenuItem.Size = new Size(180, 22);
+            flipHorizontallyToolStripMenuItem.Text = "Flip Horizontally";
+            // 
+            // flipVerticallyToolStripMenuItem
+            // 
+            flipVerticallyToolStripMenuItem.Name = "flipVerticallyToolStripMenuItem";
+            flipVerticallyToolStripMenuItem.Size = new Size(180, 22);
+            flipVerticallyToolStripMenuItem.Text = "Flip Vertically";
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(177, 6);
+            // 
+            // rotate90ToolStripMenuItem1
+            // 
+            rotate90ToolStripMenuItem1.Name = "rotate90ToolStripMenuItem1";
+            rotate90ToolStripMenuItem1.Size = new Size(180, 22);
+            rotate90ToolStripMenuItem1.Text = "Rotate -90°";
+            // 
+            // rotate90ToolStripMenuItem
+            // 
+            rotate90ToolStripMenuItem.Name = "rotate90ToolStripMenuItem";
+            rotate90ToolStripMenuItem.Size = new Size(180, 22);
+            rotate90ToolStripMenuItem.Text = "Rotate +90°";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1138, 535);
+            ClientSize = new Size(1138, 563);
             Controls.Add(buttonExportFrames);
             Controls.Add(buttonClearFrames);
             Controls.Add(buttonRetrieveFrames);
@@ -160,11 +288,15 @@
             Controls.Add(ButtonImport);
             Controls.Add(PictureAltered);
             Controls.Add(PictureUnaltered);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Image Processor";
             ((System.ComponentModel.ISupportInitialize)PictureUnaltered).EndInit();
             ((System.ComponentModel.ISupportInitialize)PictureAltered).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -181,5 +313,22 @@
         private Button buttonRetrieveFrames;
         private Button buttonClearFrames;
         private Button buttonExportFrames;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem newToolStripMenuItem;
+        private ToolStripMenuItem openToolStripMenuItem;
+        private ToolStripMenuItem quitToolStripMenuItem;
+        private ToolStripMenuItem imageToolStripMenuItem;
+        private ToolStripMenuItem transformToolStripMenuItem;
+        private ToolStripMenuItem flipHorizontallyToolStripMenuItem;
+        private ToolStripMenuItem flipVerticallyToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem rotate90ToolStripMenuItem1;
+        private ToolStripMenuItem convertToGrayscaleToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripMenuItem saveToolStripMenuItem;
+        private ToolStripMenuItem saveAsToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripMenuItem rotate90ToolStripMenuItem;
     }
 }
