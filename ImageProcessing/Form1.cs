@@ -153,5 +153,26 @@ namespace ImageProcessing
                 MessageBox.Show("Frames exported successfully!");
             }
         }
+
+        private void rotatePlus90ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewPort.Image.RotateFlip(RotateFlipType.Rotate90FlipNone); // Rotate 90° Clockwise
+        }
+
+        private void rotateMinus90ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // RotateFlip does not support negative rotations, but rotating 270° clockwise is the same as rotating -90° counterclockwise
+            ViewPort.Image.RotateFlip(RotateFlipType.Rotate270FlipNone); // Rotate 270° Clockwise
+        }
+
+        private void flipHorizontallyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewPort.Image.RotateFlip(RotateFlipType.RotateNoneFlipX); // Flip Horizontally
+        }
+
+        private void flipVerticallyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewPort.Image.RotateFlip(RotateFlipType.RotateNoneFlipY); // Flip Vertically
+        }
     }
 }

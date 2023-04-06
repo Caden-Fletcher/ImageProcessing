@@ -31,10 +31,8 @@
             viewFrames = new ListView();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
-            newToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
-            saveToolStripMenuItem = new ToolStripMenuItem();
             saveAsToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator3 = new ToolStripSeparator();
             quitToolStripMenuItem = new ToolStripMenuItem();
@@ -44,8 +42,8 @@
             flipHorizontallyToolStripMenuItem = new ToolStripMenuItem();
             flipVerticallyToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
-            rotate90ToolStripMenuItem = new ToolStripMenuItem();
-            rotate90ToolStripMenuItem1 = new ToolStripMenuItem();
+            rotatePlus90ToolStripMenuItem = new ToolStripMenuItem();
+            rotateMinus90ToolStripMenuItem1 = new ToolStripMenuItem();
             framesToolStripMenuItem = new ToolStripMenuItem();
             toolStripFrameCount = new ToolStripTextBox();
             retrieveFramesToolStripMenuItem = new ToolStripMenuItem();
@@ -62,7 +60,7 @@
             viewFrames.BorderStyle = BorderStyle.FixedSingle;
             viewFrames.Location = new Point(845, 27);
             viewFrames.Name = "viewFrames";
-            viewFrames.Size = new Size(281, 509);
+            viewFrames.Size = new Size(281, 627);
             viewFrames.TabIndex = 5;
             viewFrames.UseCompatibleStateImageBehavior = false;
             viewFrames.SelectedIndexChanged += viewFrames_SelectedIndexChanged;
@@ -78,17 +76,10 @@
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, openToolStripMenuItem, toolStripSeparator2, saveToolStripMenuItem, saveAsToolStripMenuItem, toolStripSeparator3, quitToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, toolStripSeparator2, saveAsToolStripMenuItem, toolStripSeparator3, quitToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "File";
-            // 
-            // newToolStripMenuItem
-            // 
-            newToolStripMenuItem.Name = "newToolStripMenuItem";
-            newToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.N;
-            newToolStripMenuItem.Size = new Size(186, 22);
-            newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
@@ -102,13 +93,6 @@
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
             toolStripSeparator2.Size = new Size(183, 6);
-            // 
-            // saveToolStripMenuItem
-            // 
-            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.S;
-            saveToolStripMenuItem.Size = new Size(186, 22);
-            saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
@@ -147,7 +131,7 @@
             // 
             // transformToolStripMenuItem
             // 
-            transformToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { flipHorizontallyToolStripMenuItem, flipVerticallyToolStripMenuItem, toolStripSeparator1, rotate90ToolStripMenuItem, rotate90ToolStripMenuItem1 });
+            transformToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { flipHorizontallyToolStripMenuItem, flipVerticallyToolStripMenuItem, toolStripSeparator1, rotatePlus90ToolStripMenuItem, rotateMinus90ToolStripMenuItem1 });
             transformToolStripMenuItem.Name = "transformToolStripMenuItem";
             transformToolStripMenuItem.Size = new Size(183, 22);
             transformToolStripMenuItem.Text = "Transform";
@@ -155,31 +139,35 @@
             // flipHorizontallyToolStripMenuItem
             // 
             flipHorizontallyToolStripMenuItem.Name = "flipHorizontallyToolStripMenuItem";
-            flipHorizontallyToolStripMenuItem.Size = new Size(160, 22);
+            flipHorizontallyToolStripMenuItem.Size = new Size(180, 22);
             flipHorizontallyToolStripMenuItem.Text = "Flip Horizontally";
+            flipHorizontallyToolStripMenuItem.Click += flipHorizontallyToolStripMenuItem_Click;
             // 
             // flipVerticallyToolStripMenuItem
             // 
             flipVerticallyToolStripMenuItem.Name = "flipVerticallyToolStripMenuItem";
-            flipVerticallyToolStripMenuItem.Size = new Size(160, 22);
+            flipVerticallyToolStripMenuItem.Size = new Size(180, 22);
             flipVerticallyToolStripMenuItem.Text = "Flip Vertically";
+            flipVerticallyToolStripMenuItem.Click += flipVerticallyToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(157, 6);
+            toolStripSeparator1.Size = new Size(177, 6);
             // 
-            // rotate90ToolStripMenuItem
+            // rotatePlus90ToolStripMenuItem
             // 
-            rotate90ToolStripMenuItem.Name = "rotate90ToolStripMenuItem";
-            rotate90ToolStripMenuItem.Size = new Size(160, 22);
-            rotate90ToolStripMenuItem.Text = "Rotate +90°";
+            rotatePlus90ToolStripMenuItem.Name = "rotatePlus90ToolStripMenuItem";
+            rotatePlus90ToolStripMenuItem.Size = new Size(180, 22);
+            rotatePlus90ToolStripMenuItem.Text = "Rotate +90°";
+            rotatePlus90ToolStripMenuItem.Click += rotatePlus90ToolStripMenuItem_Click;
             // 
-            // rotate90ToolStripMenuItem1
+            // rotateMinus90ToolStripMenuItem1
             // 
-            rotate90ToolStripMenuItem1.Name = "rotate90ToolStripMenuItem1";
-            rotate90ToolStripMenuItem1.Size = new Size(160, 22);
-            rotate90ToolStripMenuItem1.Text = "Rotate -90°";
+            rotateMinus90ToolStripMenuItem1.Name = "rotateMinus90ToolStripMenuItem1";
+            rotateMinus90ToolStripMenuItem1.Size = new Size(180, 22);
+            rotateMinus90ToolStripMenuItem1.Text = "Rotate -90°";
+            rotateMinus90ToolStripMenuItem1.Click += rotateMinus90ToolStripMenuItem1_Click;
             // 
             // framesToolStripMenuItem
             // 
@@ -197,21 +185,21 @@
             // retrieveFramesToolStripMenuItem
             // 
             retrieveFramesToolStripMenuItem.Name = "retrieveFramesToolStripMenuItem";
-            retrieveFramesToolStripMenuItem.Size = new Size(160, 22);
+            retrieveFramesToolStripMenuItem.Size = new Size(180, 22);
             retrieveFramesToolStripMenuItem.Text = "Retrieve Frames";
             retrieveFramesToolStripMenuItem.Click += retrieveFramesToolStripMenuItem_Click;
             // 
             // clearFramesToolStripMenuItem
             // 
             clearFramesToolStripMenuItem.Name = "clearFramesToolStripMenuItem";
-            clearFramesToolStripMenuItem.Size = new Size(160, 22);
+            clearFramesToolStripMenuItem.Size = new Size(180, 22);
             clearFramesToolStripMenuItem.Text = "Clear Frames";
             clearFramesToolStripMenuItem.Click += clearFramesToolStripMenuItem_Click;
             // 
             // exportFramesToolStripMenuItem
             // 
             exportFramesToolStripMenuItem.Name = "exportFramesToolStripMenuItem";
-            exportFramesToolStripMenuItem.Size = new Size(160, 22);
+            exportFramesToolStripMenuItem.Size = new Size(180, 22);
             exportFramesToolStripMenuItem.Text = "Export Frames";
             exportFramesToolStripMenuItem.Click += exportFramesToolStripMenuItem_Click;
             // 
@@ -221,7 +209,7 @@
             ViewPort.BorderStyle = BorderStyle.FixedSingle;
             ViewPort.Location = new Point(12, 27);
             ViewPort.Name = "ViewPort";
-            ViewPort.Size = new Size(806, 509);
+            ViewPort.Size = new Size(827, 627);
             ViewPort.TabIndex = 11;
             ViewPort.TabStop = false;
             // 
@@ -229,7 +217,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1138, 548);
+            ClientSize = new Size(1138, 666);
             Controls.Add(ViewPort);
             Controls.Add(viewFrames);
             Controls.Add(menuStrip1);
@@ -248,7 +236,6 @@
         private ListView viewFrames;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem newToolStripMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
         private ToolStripMenuItem quitToolStripMenuItem;
         private ToolStripMenuItem imageToolStripMenuItem;
@@ -256,13 +243,12 @@
         private ToolStripMenuItem flipHorizontallyToolStripMenuItem;
         private ToolStripMenuItem flipVerticallyToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripMenuItem rotate90ToolStripMenuItem1;
+        private ToolStripMenuItem rotateMinus90ToolStripMenuItem1;
         private ToolStripMenuItem convertToGrayscaleToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator2;
-        private ToolStripMenuItem saveToolStripMenuItem;
         private ToolStripMenuItem saveAsToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator3;
-        private ToolStripMenuItem rotate90ToolStripMenuItem;
+        private ToolStripMenuItem rotatePlus90ToolStripMenuItem;
         private PictureBox ViewPort;
         private ToolStripMenuItem framesToolStripMenuItem;
         private ToolStripTextBox toolStripFrameCount;
