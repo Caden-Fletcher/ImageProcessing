@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             viewFrames = new ListView();
-            labelFrames = new Label();
-            buttonRetrieveFrames = new Button();
-            buttonClearFrames = new Button();
-            buttonExportFrames = new Button();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             newToolStripMenuItem = new ToolStripMenuItem();
@@ -50,6 +46,11 @@
             toolStripSeparator1 = new ToolStripSeparator();
             rotate90ToolStripMenuItem = new ToolStripMenuItem();
             rotate90ToolStripMenuItem1 = new ToolStripMenuItem();
+            framesToolStripMenuItem = new ToolStripMenuItem();
+            toolStripFrameCount = new ToolStripTextBox();
+            retrieveFramesToolStripMenuItem = new ToolStripMenuItem();
+            clearFramesToolStripMenuItem = new ToolStripMenuItem();
+            exportFramesToolStripMenuItem = new ToolStripMenuItem();
             ViewPort = new PictureBox();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ViewPort).BeginInit();
@@ -61,54 +62,14 @@
             viewFrames.BorderStyle = BorderStyle.FixedSingle;
             viewFrames.Location = new Point(845, 27);
             viewFrames.Name = "viewFrames";
-            viewFrames.Size = new Size(281, 400);
+            viewFrames.Size = new Size(281, 509);
             viewFrames.TabIndex = 5;
             viewFrames.UseCompatibleStateImageBehavior = false;
             viewFrames.SelectedIndexChanged += viewFrames_SelectedIndexChanged;
             // 
-            // labelFrames
-            // 
-            labelFrames.AutoSize = true;
-            labelFrames.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelFrames.Location = new Point(845, 435);
-            labelFrames.Name = "labelFrames";
-            labelFrames.Size = new Size(77, 21);
-            labelFrames.TabIndex = 6;
-            labelFrames.Text = "Frames: 0";
-            // 
-            // buttonRetrieveFrames
-            // 
-            buttonRetrieveFrames.Location = new Point(845, 459);
-            buttonRetrieveFrames.Name = "buttonRetrieveFrames";
-            buttonRetrieveFrames.Size = new Size(139, 23);
-            buttonRetrieveFrames.TabIndex = 7;
-            buttonRetrieveFrames.Text = "Retrieve Frames";
-            buttonRetrieveFrames.UseVisualStyleBackColor = true;
-            buttonRetrieveFrames.Click += buttonRetrieveFrames_Click;
-            // 
-            // buttonClearFrames
-            // 
-            buttonClearFrames.Location = new Point(845, 488);
-            buttonClearFrames.Name = "buttonClearFrames";
-            buttonClearFrames.Size = new Size(139, 23);
-            buttonClearFrames.TabIndex = 8;
-            buttonClearFrames.Text = "Clear Frames";
-            buttonClearFrames.UseVisualStyleBackColor = true;
-            buttonClearFrames.Click += buttonClearFrames_Click;
-            // 
-            // buttonExportFrames
-            // 
-            buttonExportFrames.Location = new Point(845, 517);
-            buttonExportFrames.Name = "buttonExportFrames";
-            buttonExportFrames.Size = new Size(139, 23);
-            buttonExportFrames.TabIndex = 9;
-            buttonExportFrames.Text = "Export Frames";
-            buttonExportFrames.UseVisualStyleBackColor = true;
-            buttonExportFrames.Click += buttonExportFrames_Click;
-            // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, imageToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, imageToolStripMenuItem, framesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1138, 24);
@@ -220,6 +181,40 @@
             rotate90ToolStripMenuItem1.Size = new Size(160, 22);
             rotate90ToolStripMenuItem1.Text = "Rotate -90°";
             // 
+            // framesToolStripMenuItem
+            // 
+            framesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripFrameCount, retrieveFramesToolStripMenuItem, clearFramesToolStripMenuItem, exportFramesToolStripMenuItem });
+            framesToolStripMenuItem.Name = "framesToolStripMenuItem";
+            framesToolStripMenuItem.Size = new Size(57, 20);
+            framesToolStripMenuItem.Text = "Frames";
+            // 
+            // toolStripFrameCount
+            // 
+            toolStripFrameCount.Name = "toolStripFrameCount";
+            toolStripFrameCount.Size = new Size(100, 23);
+            toolStripFrameCount.Text = "Frames: 0";
+            // 
+            // retrieveFramesToolStripMenuItem
+            // 
+            retrieveFramesToolStripMenuItem.Name = "retrieveFramesToolStripMenuItem";
+            retrieveFramesToolStripMenuItem.Size = new Size(160, 22);
+            retrieveFramesToolStripMenuItem.Text = "Retrieve Frames";
+            retrieveFramesToolStripMenuItem.Click += retrieveFramesToolStripMenuItem_Click;
+            // 
+            // clearFramesToolStripMenuItem
+            // 
+            clearFramesToolStripMenuItem.Name = "clearFramesToolStripMenuItem";
+            clearFramesToolStripMenuItem.Size = new Size(160, 22);
+            clearFramesToolStripMenuItem.Text = "Clear Frames";
+            clearFramesToolStripMenuItem.Click += clearFramesToolStripMenuItem_Click;
+            // 
+            // exportFramesToolStripMenuItem
+            // 
+            exportFramesToolStripMenuItem.Name = "exportFramesToolStripMenuItem";
+            exportFramesToolStripMenuItem.Size = new Size(160, 22);
+            exportFramesToolStripMenuItem.Text = "Export Frames";
+            exportFramesToolStripMenuItem.Click += exportFramesToolStripMenuItem_Click;
+            // 
             // ViewPort
             // 
             ViewPort.BackColor = Color.FromArgb(224, 224, 224);
@@ -236,10 +231,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1138, 548);
             Controls.Add(ViewPort);
-            Controls.Add(buttonExportFrames);
-            Controls.Add(buttonClearFrames);
-            Controls.Add(buttonRetrieveFrames);
-            Controls.Add(labelFrames);
             Controls.Add(viewFrames);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -255,10 +246,6 @@
 
         #endregion
         private ListView viewFrames;
-        private Label labelFrames;
-        private Button buttonRetrieveFrames;
-        private Button buttonClearFrames;
-        private Button buttonExportFrames;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem newToolStripMenuItem;
@@ -277,5 +264,10 @@
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem rotate90ToolStripMenuItem;
         private PictureBox ViewPort;
+        private ToolStripMenuItem framesToolStripMenuItem;
+        private ToolStripTextBox toolStripFrameCount;
+        private ToolStripMenuItem retrieveFramesToolStripMenuItem;
+        private ToolStripMenuItem clearFramesToolStripMenuItem;
+        private ToolStripMenuItem exportFramesToolStripMenuItem;
     }
 }
