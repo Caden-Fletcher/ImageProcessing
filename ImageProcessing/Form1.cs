@@ -20,22 +20,13 @@ namespace ImageProcessing
             {
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
-                    PictureUnaltered.Image = new Bitmap(openFile.FileName);
-                    PictureAltered.Image = new Bitmap(openFile.FileName);
+                    ViewPort.Image = new Bitmap(openFile.FileName);
                 }
             }
             catch
             {
                 MessageBox.Show("Incompatible Extension", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-        }
-
-        private void ButtonConvertToGrayscale_Click(object sender, EventArgs e)
-        {
-            Bitmap copyBitmap = new Bitmap((Bitmap)PictureAltered.Image);
-            ProcessImage(copyBitmap);
-            PictureAltered.Image = copyBitmap;
         }
 
         private void ProcessImage(Bitmap bmp) // Convert Image to Grayscale
@@ -60,34 +51,74 @@ namespace ImageProcessing
             }
         }
 
-        private void ButtonExport_Click(object sender, EventArgs e)
+        private void viewFrames_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SaveFileDialog saveFile = new SaveFileDialog();
-            saveFile.Filter = "BMP(*.bmp)|*.bmp|" +
-                              "GIF(*.gif)|*.gif|" +
-                              "JPEG(*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-                              "PNG(*.png)|*.png";
-
-            if (saveFile.ShowDialog() == DialogResult.OK)
+            if (0 < viewFrames.SelectedItems.Count)
             {
-                PictureAltered.Image.Save(saveFile.FileName); // Save the image from the processed image section
+                var item = viewFrames.SelectedItems[0];
+                Image image = imageList.Images[item.ImageIndex];
+                ViewPort.Image = image;
             }
         }
 
-        private void buttonRetrieveFrames_Click(object sender, EventArgs e)
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrameDimension frameDimension = new FrameDimension(PictureUnaltered.Image.FrameDimensionsList[0]);
+            Application.Exit();
+        }
 
-            int frameCount = PictureUnaltered.Image.GetFrameCount(frameDimension);
-            labelFrames.Text = "Frames: " + frameCount.ToString(); // Display how many frames are in the image
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+
+            try
+            {
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    ViewPort.Image = new Bitmap(openFile.FileName);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Incompatible Extension", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter =
+                "Bitmap(*.bmp)|*.bmp|" +
+                "GIF(*.gif)|*.gif|" +
+                "JPEG(*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+                "PNG(*.png)|*.png";
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                ViewPort.Image.Save(saveFile.FileName);
+            }
+        }
+
+        private void convertToGrayscaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap copyBitmap = new Bitmap((Bitmap)ViewPort.Image);
+            ProcessImage(copyBitmap);
+            ViewPort.Image = copyBitmap;
+        }
+
+        private void retrieveFramesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrameDimension frameDimension = new FrameDimension(ViewPort.Image.FrameDimensionsList[0]);
+
+            int frameCount = ViewPort.Image.GetFrameCount(frameDimension);
+            toolStripFrameCount.Text = "Frames: " + frameCount.ToString();
 
             for (int i = 0; i < frameCount; i++)
             {
-                PictureUnaltered.Image.SelectActiveFrame(new FrameDimension(PictureUnaltered.Image.FrameDimensionsList[0]), i); // Retrieve all frames
+                ViewPort.Image.SelectActiveFrame(new FrameDimension(ViewPort.Image.FrameDimensionsList[0]), i); // Retrieve all frames
                 imageList.ImageSize = new Size(256, 100);
 
                 viewFrames.LargeImageList = imageList;
-                imageList.Images.Add(PictureUnaltered.Image);
+                imageList.Images.Add(ViewPort.Image);
 
                 ListViewItem item = new ListViewItem();
                 item.ImageIndex = i;
@@ -95,25 +126,14 @@ namespace ImageProcessing
             }
         }
 
-        private void buttonClearFrames_Click(object sender, EventArgs e)
+        private void clearFramesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PictureAltered.Image = PictureUnaltered.Image;
-            labelFrames.Text = "Frames: 0";
+            toolStripFrameCount.Text = "Frames: 0";
             viewFrames.Items.Clear(); // Clears the stored frames, otherwise the original image frames will still populate the list
             imageList.Images.Clear();
         }
 
-        private void viewFrames_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (0 < viewFrames.SelectedItems.Count)
-            {
-                var item = viewFrames.SelectedItems[0];
-                Image image = imageList.Images[item.ImageIndex];
-                PictureAltered.Image = image;
-            }
-        }
-
-        private void buttonExportFrames_Click(object sender, EventArgs e)
+        private void exportFramesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             DialogResult dialogResult = dialog.ShowDialog();
@@ -132,6 +152,27 @@ namespace ImageProcessing
 
                 MessageBox.Show("Frames exported successfully!");
             }
+        }
+
+        private void rotatePlus90ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewPort.Image.RotateFlip(RotateFlipType.Rotate90FlipNone); // Rotate 90° Clockwise
+        }
+
+        private void rotateMinus90ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // RotateFlip does not support negative rotations, but rotating 270° clockwise is the same as rotating -90° counterclockwise
+            ViewPort.Image.RotateFlip(RotateFlipType.Rotate270FlipNone); // Rotate 270° Clockwise
+        }
+
+        private void flipHorizontallyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewPort.Image.RotateFlip(RotateFlipType.RotateNoneFlipX); // Flip Horizontally
+        }
+
+        private void flipVerticallyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewPort.Image.RotateFlip(RotateFlipType.RotateNoneFlipY); // Flip Vertically
         }
     }
 }
