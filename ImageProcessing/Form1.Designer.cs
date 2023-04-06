@@ -139,33 +139,33 @@
             // flipHorizontallyToolStripMenuItem
             // 
             flipHorizontallyToolStripMenuItem.Name = "flipHorizontallyToolStripMenuItem";
-            flipHorizontallyToolStripMenuItem.Size = new Size(180, 22);
+            flipHorizontallyToolStripMenuItem.Size = new Size(160, 22);
             flipHorizontallyToolStripMenuItem.Text = "Flip Horizontally";
             flipHorizontallyToolStripMenuItem.Click += flipHorizontallyToolStripMenuItem_Click;
             // 
             // flipVerticallyToolStripMenuItem
             // 
             flipVerticallyToolStripMenuItem.Name = "flipVerticallyToolStripMenuItem";
-            flipVerticallyToolStripMenuItem.Size = new Size(180, 22);
+            flipVerticallyToolStripMenuItem.Size = new Size(160, 22);
             flipVerticallyToolStripMenuItem.Text = "Flip Vertically";
             flipVerticallyToolStripMenuItem.Click += flipVerticallyToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(177, 6);
+            toolStripSeparator1.Size = new Size(157, 6);
             // 
             // rotatePlus90ToolStripMenuItem
             // 
             rotatePlus90ToolStripMenuItem.Name = "rotatePlus90ToolStripMenuItem";
-            rotatePlus90ToolStripMenuItem.Size = new Size(180, 22);
+            rotatePlus90ToolStripMenuItem.Size = new Size(160, 22);
             rotatePlus90ToolStripMenuItem.Text = "Rotate +90°";
             rotatePlus90ToolStripMenuItem.Click += rotatePlus90ToolStripMenuItem_Click;
             // 
             // rotateMinus90ToolStripMenuItem1
             // 
             rotateMinus90ToolStripMenuItem1.Name = "rotateMinus90ToolStripMenuItem1";
-            rotateMinus90ToolStripMenuItem1.Size = new Size(180, 22);
+            rotateMinus90ToolStripMenuItem1.Size = new Size(160, 22);
             rotateMinus90ToolStripMenuItem1.Text = "Rotate -90°";
             rotateMinus90ToolStripMenuItem1.Click += rotateMinus90ToolStripMenuItem1_Click;
             // 
@@ -185,31 +185,33 @@
             // retrieveFramesToolStripMenuItem
             // 
             retrieveFramesToolStripMenuItem.Name = "retrieveFramesToolStripMenuItem";
-            retrieveFramesToolStripMenuItem.Size = new Size(180, 22);
+            retrieveFramesToolStripMenuItem.Size = new Size(160, 22);
             retrieveFramesToolStripMenuItem.Text = "Retrieve Frames";
             retrieveFramesToolStripMenuItem.Click += retrieveFramesToolStripMenuItem_Click;
             // 
             // clearFramesToolStripMenuItem
             // 
             clearFramesToolStripMenuItem.Name = "clearFramesToolStripMenuItem";
-            clearFramesToolStripMenuItem.Size = new Size(180, 22);
+            clearFramesToolStripMenuItem.Size = new Size(160, 22);
             clearFramesToolStripMenuItem.Text = "Clear Frames";
             clearFramesToolStripMenuItem.Click += clearFramesToolStripMenuItem_Click;
             // 
             // exportFramesToolStripMenuItem
             // 
             exportFramesToolStripMenuItem.Name = "exportFramesToolStripMenuItem";
-            exportFramesToolStripMenuItem.Size = new Size(180, 22);
+            exportFramesToolStripMenuItem.Size = new Size(160, 22);
             exportFramesToolStripMenuItem.Text = "Export Frames";
             exportFramesToolStripMenuItem.Click += exportFramesToolStripMenuItem_Click;
             // 
             // ViewPort
             // 
             ViewPort.BackColor = Color.FromArgb(224, 224, 224);
+            ViewPort.BackgroundImageLayout = ImageLayout.Center;
             ViewPort.BorderStyle = BorderStyle.FixedSingle;
             ViewPort.Location = new Point(12, 27);
             ViewPort.Name = "ViewPort";
             ViewPort.Size = new Size(827, 627);
+            ViewPort.SizeMode = PictureBoxSizeMode.CenterImage;
             ViewPort.TabIndex = 11;
             ViewPort.TabStop = false;
             // 
