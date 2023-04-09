@@ -52,6 +52,11 @@ namespace ImageProcessing
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Filter = "Image Files|" +
+                "*.bmp;" +
+                "*.gif;" +
+                "*.jpg;*.jpeg;" +
+                "*.png";
 
             try
             {
