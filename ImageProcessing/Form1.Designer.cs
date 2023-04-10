@@ -211,7 +211,7 @@
             ViewPort.Location = new Point(12, 27);
             ViewPort.Name = "ViewPort";
             ViewPort.Size = new Size(827, 627);
-            ViewPort.SizeMode = PictureBoxSizeMode.CenterImage;
+            ViewPort.SizeMode = PictureBoxSizeMode.Zoom;
             ViewPort.TabIndex = 11;
             ViewPort.TabStop = false;
             // 
