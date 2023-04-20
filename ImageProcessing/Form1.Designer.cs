@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            viewFrames = new ListView();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
@@ -36,6 +35,9 @@
             saveAsToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator3 = new ToolStripSeparator();
             quitToolStripMenuItem = new ToolStripMenuItem();
+            framesToolStripMenuItem = new ToolStripMenuItem();
+            toolStripFrameCount = new ToolStripTextBox();
+            exportFramesToolStripMenuItem = new ToolStripMenuItem();
             imageToolStripMenuItem = new ToolStripMenuItem();
             convertToGrayscaleToolStripMenuItem = new ToolStripMenuItem();
             transformToolStripMenuItem = new ToolStripMenuItem();
@@ -44,33 +46,19 @@
             toolStripSeparator1 = new ToolStripSeparator();
             rotatePlus90ToolStripMenuItem = new ToolStripMenuItem();
             rotateMinus90ToolStripMenuItem1 = new ToolStripMenuItem();
-            framesToolStripMenuItem = new ToolStripMenuItem();
-            toolStripFrameCount = new ToolStripTextBox();
-            retrieveFramesToolStripMenuItem = new ToolStripMenuItem();
-            clearFramesToolStripMenuItem = new ToolStripMenuItem();
-            exportFramesToolStripMenuItem = new ToolStripMenuItem();
             ViewPort = new PictureBox();
+            TransferPort = new PictureBox();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ViewPort).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TransferPort).BeginInit();
             SuspendLayout();
-            // 
-            // viewFrames
-            // 
-            viewFrames.BackColor = Color.FromArgb(224, 224, 224);
-            viewFrames.BorderStyle = BorderStyle.FixedSingle;
-            viewFrames.Location = new Point(845, 27);
-            viewFrames.Name = "viewFrames";
-            viewFrames.Size = new Size(281, 627);
-            viewFrames.TabIndex = 5;
-            viewFrames.UseCompatibleStateImageBehavior = false;
-            viewFrames.SelectedIndexChanged += viewFrames_SelectedIndexChanged;
             // 
             // menuStrip1
             // 
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, imageToolStripMenuItem, framesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1138, 24);
+            menuStrip1.Size = new Size(1097, 24);
             menuStrip1.TabIndex = 10;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -114,6 +102,26 @@
             quitToolStripMenuItem.Size = new Size(186, 22);
             quitToolStripMenuItem.Text = "Quit";
             quitToolStripMenuItem.Click += quitToolStripMenuItem_Click;
+            // 
+            // framesToolStripMenuItem
+            // 
+            framesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripFrameCount, exportFramesToolStripMenuItem });
+            framesToolStripMenuItem.Name = "framesToolStripMenuItem";
+            framesToolStripMenuItem.Size = new Size(57, 20);
+            framesToolStripMenuItem.Text = "Frames";
+            // 
+            // toolStripFrameCount
+            // 
+            toolStripFrameCount.Name = "toolStripFrameCount";
+            toolStripFrameCount.Size = new Size(100, 23);
+            toolStripFrameCount.Text = "Frames: 0";
+            // 
+            // exportFramesToolStripMenuItem
+            // 
+            exportFramesToolStripMenuItem.Name = "exportFramesToolStripMenuItem";
+            exportFramesToolStripMenuItem.Size = new Size(160, 22);
+            exportFramesToolStripMenuItem.Text = "Export Frames";
+            exportFramesToolStripMenuItem.Click += exportFramesToolStripMenuItem_Click;
             // 
             // imageToolStripMenuItem
             // 
@@ -169,40 +177,6 @@
             rotateMinus90ToolStripMenuItem1.Text = "Rotate -90°";
             rotateMinus90ToolStripMenuItem1.Click += rotateMinus90ToolStripMenuItem1_Click;
             // 
-            // framesToolStripMenuItem
-            // 
-            framesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripFrameCount, retrieveFramesToolStripMenuItem, clearFramesToolStripMenuItem, exportFramesToolStripMenuItem });
-            framesToolStripMenuItem.Name = "framesToolStripMenuItem";
-            framesToolStripMenuItem.Size = new Size(57, 20);
-            framesToolStripMenuItem.Text = "Frames";
-            // 
-            // toolStripFrameCount
-            // 
-            toolStripFrameCount.Name = "toolStripFrameCount";
-            toolStripFrameCount.Size = new Size(100, 23);
-            toolStripFrameCount.Text = "Frames: 0";
-            // 
-            // retrieveFramesToolStripMenuItem
-            // 
-            retrieveFramesToolStripMenuItem.Name = "retrieveFramesToolStripMenuItem";
-            retrieveFramesToolStripMenuItem.Size = new Size(160, 22);
-            retrieveFramesToolStripMenuItem.Text = "Retrieve Frames";
-            retrieveFramesToolStripMenuItem.Click += retrieveFramesToolStripMenuItem_Click;
-            // 
-            // clearFramesToolStripMenuItem
-            // 
-            clearFramesToolStripMenuItem.Name = "clearFramesToolStripMenuItem";
-            clearFramesToolStripMenuItem.Size = new Size(160, 22);
-            clearFramesToolStripMenuItem.Text = "Clear Frames";
-            clearFramesToolStripMenuItem.Click += clearFramesToolStripMenuItem_Click;
-            // 
-            // exportFramesToolStripMenuItem
-            // 
-            exportFramesToolStripMenuItem.Name = "exportFramesToolStripMenuItem";
-            exportFramesToolStripMenuItem.Size = new Size(160, 22);
-            exportFramesToolStripMenuItem.Text = "Export Frames";
-            exportFramesToolStripMenuItem.Click += exportFramesToolStripMenuItem_Click;
-            // 
             // ViewPort
             // 
             ViewPort.BackColor = Color.FromArgb(224, 224, 224);
@@ -215,13 +189,25 @@
             ViewPort.TabIndex = 11;
             ViewPort.TabStop = false;
             // 
+            // TransferPort
+            // 
+            TransferPort.BackColor = Color.FromArgb(224, 224, 224);
+            TransferPort.BackgroundImageLayout = ImageLayout.Center;
+            TransferPort.BorderStyle = BorderStyle.FixedSingle;
+            TransferPort.Location = new Point(845, 27);
+            TransferPort.Name = "TransferPort";
+            TransferPort.Size = new Size(242, 627);
+            TransferPort.SizeMode = PictureBoxSizeMode.Zoom;
+            TransferPort.TabIndex = 12;
+            TransferPort.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1138, 666);
+            ClientSize = new Size(1097, 666);
+            Controls.Add(TransferPort);
             Controls.Add(ViewPort);
-            Controls.Add(viewFrames);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
@@ -230,12 +216,12 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ViewPort).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TransferPort).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private ListView viewFrames;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
@@ -254,8 +240,7 @@
         private PictureBox ViewPort;
         private ToolStripMenuItem framesToolStripMenuItem;
         private ToolStripTextBox toolStripFrameCount;
-        private ToolStripMenuItem retrieveFramesToolStripMenuItem;
-        private ToolStripMenuItem clearFramesToolStripMenuItem;
         private ToolStripMenuItem exportFramesToolStripMenuItem;
+        private PictureBox TransferPort;
     }
 }

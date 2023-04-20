@@ -1,5 +1,4 @@
 using System.Drawing.Imaging;
-using System.Windows.Forms;
 
 namespace ImageProcessing
 {
@@ -31,16 +30,6 @@ namespace ImageProcessing
 
                     bmp.SetPixel(i, j, Color.FromArgb(red, green, blue));
                 }
-            }
-        }
-
-        private void viewFrames_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (0 < viewFrames.SelectedItems.Count)
-            {
-                var item = viewFrames.SelectedItems[0];
-                Image image = imageList.Images[item.ImageIndex];
-                ViewPort.Image = image;
             }
         }
 
@@ -93,52 +82,36 @@ namespace ImageProcessing
             ViewPort.Image = copyBitmap;
         }
 
-        private void retrieveFramesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exportFramesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrameDimension frameDimension = new FrameDimension(ViewPort.Image.FrameDimensionsList[0]);
 
             int frameCount = ViewPort.Image.GetFrameCount(frameDimension);
             toolStripFrameCount.Text = "Frames: " + frameCount.ToString();
 
-            for (int i = 0; i < frameCount; i++)
-            {
-                ViewPort.Image.SelectActiveFrame(new FrameDimension(ViewPort.Image.FrameDimensionsList[0]), i); // Retrieve all frames
-                imageList.ImageSize = new Size(256, 100);
+            Image[] getFrames = new Image[frameCount];
+            
 
-                viewFrames.LargeImageList = imageList;
-                imageList.Images.Add(ViewPort.Image);
 
-                ListViewItem item = new ListViewItem();
-                item.ImageIndex = i;
-                viewFrames.Items.Add(item);
-            }
-        }
-
-        private void clearFramesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toolStripFrameCount.Text = "Frames: 0";
-            viewFrames.Items.Clear(); // Clears the stored frames, otherwise the original image frames will still populate the list
-            imageList.Images.Clear();
-        }
-
-        private void exportFramesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             DialogResult dialogResult = dialog.ShowDialog();
 
             if (dialogResult == DialogResult.OK)
             {
                 string filePath = dialog.SelectedPath;
-                int index = 1;
 
-                foreach (Image image in imageList.Images)
+                for (int i = 0; i < frameCount; i++) // Retrieve and export frames
                 {
-                    string path = Path.Combine(filePath, string.Format("Sprite-{0}.png", index));
-                    image.Save(path);
-                    index++;
+                    ViewPort.Image.SelectActiveFrame(frameDimension, i);
+
+                    getFrames[i] = new Bitmap(ViewPort.Image); // Store the current frame in the array
+                    TransferPort.Image = getFrames[i];
+
+                    string path = Path.Combine(filePath, string.Format("Sprite-{0}.png", i));
+                    TransferPort.Image.Save(path);
                 }
 
-                MessageBox.Show("Frames exported successfully!");
+                MessageBox.Show("The program exported " + frameCount + " frames succesfully!");
             }
         }
 
