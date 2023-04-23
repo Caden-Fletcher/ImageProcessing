@@ -35,10 +35,8 @@
             saveAsToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator3 = new ToolStripSeparator();
             quitToolStripMenuItem = new ToolStripMenuItem();
-            framesToolStripMenuItem = new ToolStripMenuItem();
-            toolStripFrameCount = new ToolStripTextBox();
-            exportFramesToolStripMenuItem = new ToolStripMenuItem();
             imageToolStripMenuItem = new ToolStripMenuItem();
+            convertToNegativeMenuImageStrip = new ToolStripMenuItem();
             convertToGrayscaleToolStripMenuItem = new ToolStripMenuItem();
             transformToolStripMenuItem = new ToolStripMenuItem();
             flipHorizontallyToolStripMenuItem = new ToolStripMenuItem();
@@ -46,6 +44,9 @@
             toolStripSeparator1 = new ToolStripSeparator();
             rotatePlus90ToolStripMenuItem = new ToolStripMenuItem();
             rotateMinus90ToolStripMenuItem1 = new ToolStripMenuItem();
+            framesToolStripMenuItem = new ToolStripMenuItem();
+            toolStripFrameCount = new ToolStripTextBox();
+            exportFramesToolStripMenuItem = new ToolStripMenuItem();
             ViewPort = new PictureBox();
             TransferPort = new PictureBox();
             menuStrip1.SuspendLayout();
@@ -103,32 +104,19 @@
             quitToolStripMenuItem.Text = "Quit";
             quitToolStripMenuItem.Click += quitToolStripMenuItem_Click;
             // 
-            // framesToolStripMenuItem
-            // 
-            framesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripFrameCount, exportFramesToolStripMenuItem });
-            framesToolStripMenuItem.Name = "framesToolStripMenuItem";
-            framesToolStripMenuItem.Size = new Size(57, 20);
-            framesToolStripMenuItem.Text = "Frames";
-            // 
-            // toolStripFrameCount
-            // 
-            toolStripFrameCount.Name = "toolStripFrameCount";
-            toolStripFrameCount.Size = new Size(100, 23);
-            toolStripFrameCount.Text = "Frames: 0";
-            // 
-            // exportFramesToolStripMenuItem
-            // 
-            exportFramesToolStripMenuItem.Name = "exportFramesToolStripMenuItem";
-            exportFramesToolStripMenuItem.Size = new Size(160, 22);
-            exportFramesToolStripMenuItem.Text = "Export Frames";
-            exportFramesToolStripMenuItem.Click += exportFramesToolStripMenuItem_Click;
-            // 
             // imageToolStripMenuItem
             // 
-            imageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { convertToGrayscaleToolStripMenuItem, transformToolStripMenuItem });
+            imageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { convertToGrayscaleToolStripMenuItem, convertToNegativeMenuImageStrip, transformToolStripMenuItem });
             imageToolStripMenuItem.Name = "imageToolStripMenuItem";
             imageToolStripMenuItem.Size = new Size(52, 20);
             imageToolStripMenuItem.Text = "Image";
+            // 
+            // convertToNegativeMenuImageStrip
+            // 
+            convertToNegativeMenuImageStrip.Name = "convertToNegativeMenuImageStrip";
+            convertToNegativeMenuImageStrip.Size = new Size(183, 22);
+            convertToNegativeMenuImageStrip.Text = "Convert to Negative";
+            convertToNegativeMenuImageStrip.Click += convertToNegativeMenuImageStrip_Click;
             // 
             // convertToGrayscaleToolStripMenuItem
             // 
@@ -176,6 +164,26 @@
             rotateMinus90ToolStripMenuItem1.Size = new Size(160, 22);
             rotateMinus90ToolStripMenuItem1.Text = "Rotate -90°";
             rotateMinus90ToolStripMenuItem1.Click += rotateMinus90ToolStripMenuItem1_Click;
+            // 
+            // framesToolStripMenuItem
+            // 
+            framesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripFrameCount, exportFramesToolStripMenuItem });
+            framesToolStripMenuItem.Name = "framesToolStripMenuItem";
+            framesToolStripMenuItem.Size = new Size(57, 20);
+            framesToolStripMenuItem.Text = "Frames";
+            // 
+            // toolStripFrameCount
+            // 
+            toolStripFrameCount.Name = "toolStripFrameCount";
+            toolStripFrameCount.Size = new Size(100, 23);
+            toolStripFrameCount.Text = "Frames: 0";
+            // 
+            // exportFramesToolStripMenuItem
+            // 
+            exportFramesToolStripMenuItem.Name = "exportFramesToolStripMenuItem";
+            exportFramesToolStripMenuItem.Size = new Size(160, 22);
+            exportFramesToolStripMenuItem.Text = "Export Frames";
+            exportFramesToolStripMenuItem.Click += exportFramesToolStripMenuItem_Click;
             // 
             // ViewPort
             // 
@@ -242,5 +250,6 @@
         private ToolStripTextBox toolStripFrameCount;
         private ToolStripMenuItem exportFramesToolStripMenuItem;
         private PictureBox TransferPort;
+        private ToolStripMenuItem convertToNegativeMenuImageStrip;
     }
 }

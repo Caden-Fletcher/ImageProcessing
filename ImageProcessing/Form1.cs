@@ -82,6 +82,27 @@ namespace ImageProcessing
             ViewPort.Image = copyBitmap;
         }
 
+        private void convertToNegativeMenuImageStrip_Click(object sender, EventArgs e)
+        {
+            Image image = ViewPort.Image;
+            Bitmap bitmapInverted = new Bitmap(image.Width, image.Height);
+            ImageAttributes imageAttributes = new ImageAttributes();
+            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+                {
+                    new float[] {-1, 0, 0, 0, 0}, // Invert all red in the image
+                    new float[] {0, -1, 0, 0, 0}, // Invert all green in the image
+                    new float[] {0, 0, -1, 0, 0}, // Invert all blue in the image
+                    new float[] {0, 0, 0, 1, 0}, // Alpha scaling factor of 1
+                    new float[] {1, 1, 1, 0, 1}, // Three translations of 1
+                });
+
+            imageAttributes.SetColorMatrix(colorMatrix);
+            Graphics graphics = Graphics.FromImage(bitmapInverted);
+            graphics.DrawImage(image, new Rectangle(0, 0, image.Width, image.Height), 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, imageAttributes);
+            graphics.Dispose();
+
+            ViewPort.Image = bitmapInverted;
+        }
         private void exportFramesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrameDimension frameDimension = new FrameDimension(ViewPort.Image.FrameDimensionsList[0]);
@@ -90,7 +111,7 @@ namespace ImageProcessing
             toolStripFrameCount.Text = "Frames: " + frameCount.ToString();
 
             Image[] getFrames = new Image[frameCount];
-            
+
 
 
             FolderBrowserDialog dialog = new FolderBrowserDialog();
