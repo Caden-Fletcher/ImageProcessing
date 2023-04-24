@@ -53,13 +53,9 @@ namespace ImageProcessing
             Application.Exit();
         }
 
-        /// <summary>
-        /// Decreases the brightness of an image.
-        /// 
-        /// This will cause the image to lose it's original color values, so make sure to keep a copy of the original image.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // Decreases the brightness of an image.
+        // 
+        // This will cause the image to lose it's original color values, so make sure to keep a copy of the original image.
         private void decreaseBrightnessImageMenuStrip_Click(object sender, EventArgs e)
         {
             Image image = ViewPort.Image;
@@ -82,13 +78,9 @@ namespace ImageProcessing
             ViewPort.Image = bitmapInverted;
         }
 
-        /// <summary>
-        /// Increases the brightness of an image.
-        /// 
-        /// This will cause the image to lose it's original color values, so make sure to keep a copy of the original image.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // Increases the brightness of an image.
+        // 
+        // This will cause the image to lose it's original color values, so make sure to keep a copy of the original image.
         private void increaseBrightnessImageMenuStrip_Click(object sender, EventArgs e)
         {
             Image image = ViewPort.Image;
