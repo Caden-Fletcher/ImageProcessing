@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
@@ -36,8 +37,12 @@
             toolStripSeparator3 = new ToolStripSeparator();
             quitToolStripMenuItem = new ToolStripMenuItem();
             imageToolStripMenuItem = new ToolStripMenuItem();
-            convertToNegativeMenuImageStrip = new ToolStripMenuItem();
-            convertToGrayscaleToolStripMenuItem = new ToolStripMenuItem();
+            decreaseBrightnessImageMenuStrip = new ToolStripMenuItem();
+            increaseBrightnessImageMenuStrip = new ToolStripMenuItem();
+            toolStripSeparator4 = new ToolStripSeparator();
+            grayscaleToolStripMenuItem = new ToolStripMenuItem();
+            negativeMenuImageStrip = new ToolStripMenuItem();
+            toolStripSeparator5 = new ToolStripSeparator();
             transformToolStripMenuItem = new ToolStripMenuItem();
             flipHorizontallyToolStripMenuItem = new ToolStripMenuItem();
             flipVerticallyToolStripMenuItem = new ToolStripMenuItem();
@@ -49,9 +54,11 @@
             exportFramesToolStripMenuItem = new ToolStripMenuItem();
             ViewPort = new PictureBox();
             TransferPort = new PictureBox();
+            bindingSource1 = new BindingSource(components);
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ViewPort).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TransferPort).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -106,30 +113,54 @@
             // 
             // imageToolStripMenuItem
             // 
-            imageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { convertToGrayscaleToolStripMenuItem, convertToNegativeMenuImageStrip, transformToolStripMenuItem });
+            imageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { decreaseBrightnessImageMenuStrip, increaseBrightnessImageMenuStrip, toolStripSeparator4, grayscaleToolStripMenuItem, negativeMenuImageStrip, toolStripSeparator5, transformToolStripMenuItem });
             imageToolStripMenuItem.Name = "imageToolStripMenuItem";
             imageToolStripMenuItem.Size = new Size(52, 20);
             imageToolStripMenuItem.Text = "Image";
             // 
-            // convertToNegativeMenuImageStrip
+            // decreaseBrightnessImageMenuStrip
             // 
-            convertToNegativeMenuImageStrip.Name = "convertToNegativeMenuImageStrip";
-            convertToNegativeMenuImageStrip.Size = new Size(183, 22);
-            convertToNegativeMenuImageStrip.Text = "Convert to Negative";
-            convertToNegativeMenuImageStrip.Click += convertToNegativeMenuImageStrip_Click;
+            decreaseBrightnessImageMenuStrip.Name = "decreaseBrightnessImageMenuStrip";
+            decreaseBrightnessImageMenuStrip.Size = new Size(180, 22);
+            decreaseBrightnessImageMenuStrip.Text = "Decrease Brightness";
+            decreaseBrightnessImageMenuStrip.Click += decreaseBrightnessImageMenuStrip_Click;
             // 
-            // convertToGrayscaleToolStripMenuItem
+            // increaseBrightnessImageMenuStrip
             // 
-            convertToGrayscaleToolStripMenuItem.Name = "convertToGrayscaleToolStripMenuItem";
-            convertToGrayscaleToolStripMenuItem.Size = new Size(183, 22);
-            convertToGrayscaleToolStripMenuItem.Text = "Convert to Grayscale";
-            convertToGrayscaleToolStripMenuItem.Click += convertToGrayscaleToolStripMenuItem_Click;
+            increaseBrightnessImageMenuStrip.Name = "increaseBrightnessImageMenuStrip";
+            increaseBrightnessImageMenuStrip.Size = new Size(180, 22);
+            increaseBrightnessImageMenuStrip.Text = "Increase Brightness";
+            increaseBrightnessImageMenuStrip.Click += increaseBrightnessImageMenuStrip_Click;
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(177, 6);
+            // 
+            // grayscaleToolStripMenuItem
+            // 
+            grayscaleToolStripMenuItem.Name = "grayscaleToolStripMenuItem";
+            grayscaleToolStripMenuItem.Size = new Size(180, 22);
+            grayscaleToolStripMenuItem.Text = "Grayscale";
+            grayscaleToolStripMenuItem.Click += convertToGrayscaleToolStripMenuItem_Click;
+            // 
+            // negativeMenuImageStrip
+            // 
+            negativeMenuImageStrip.Name = "negativeMenuImageStrip";
+            negativeMenuImageStrip.Size = new Size(180, 22);
+            negativeMenuImageStrip.Text = "Negative";
+            negativeMenuImageStrip.Click += convertToNegativeMenuImageStrip_Click;
+            // 
+            // toolStripSeparator5
+            // 
+            toolStripSeparator5.Name = "toolStripSeparator5";
+            toolStripSeparator5.Size = new Size(177, 6);
             // 
             // transformToolStripMenuItem
             // 
             transformToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { flipHorizontallyToolStripMenuItem, flipVerticallyToolStripMenuItem, toolStripSeparator1, rotatePlus90ToolStripMenuItem, rotateMinus90ToolStripMenuItem1 });
             transformToolStripMenuItem.Name = "transformToolStripMenuItem";
-            transformToolStripMenuItem.Size = new Size(183, 22);
+            transformToolStripMenuItem.Size = new Size(180, 22);
             transformToolStripMenuItem.Text = "Transform";
             // 
             // flipHorizontallyToolStripMenuItem
@@ -181,7 +212,7 @@
             // exportFramesToolStripMenuItem
             // 
             exportFramesToolStripMenuItem.Name = "exportFramesToolStripMenuItem";
-            exportFramesToolStripMenuItem.Size = new Size(160, 22);
+            exportFramesToolStripMenuItem.Size = new Size(180, 22);
             exportFramesToolStripMenuItem.Text = "Export Frames";
             exportFramesToolStripMenuItem.Click += exportFramesToolStripMenuItem_Click;
             // 
@@ -225,6 +256,7 @@
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ViewPort).EndInit();
             ((System.ComponentModel.ISupportInitialize)TransferPort).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -240,7 +272,7 @@
         private ToolStripMenuItem flipVerticallyToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem rotateMinus90ToolStripMenuItem1;
-        private ToolStripMenuItem convertToGrayscaleToolStripMenuItem;
+        private ToolStripMenuItem grayscaleToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem saveAsToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator3;
@@ -250,6 +282,11 @@
         private ToolStripTextBox toolStripFrameCount;
         private ToolStripMenuItem exportFramesToolStripMenuItem;
         private PictureBox TransferPort;
-        private ToolStripMenuItem convertToNegativeMenuImageStrip;
+        private ToolStripMenuItem negativeMenuImageStrip;
+        private ToolStripMenuItem increaseBrightnessImageMenuStrip;
+        private ToolStripMenuItem decreaseBrightnessImageMenuStrip;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripSeparator toolStripSeparator5;
+        private BindingSource bindingSource1;
     }
 }
