@@ -59,7 +59,7 @@ namespace ImageProcessing
         private void decreaseBrightnessImageMenuStrip_Click(object sender, EventArgs e)
         {
             Image image = ViewPort.Image;
-            Bitmap bitmapInverted = new Bitmap(image.Width, image.Height);
+            Bitmap bitmapChanged = new Bitmap(image.Width, image.Height);
             ImageAttributes imageAttributes = new ImageAttributes();
             ColorMatrix colorMatrix = new ColorMatrix(new float[][]
                 {
@@ -71,11 +71,11 @@ namespace ImageProcessing
                 });
 
             imageAttributes.SetColorMatrix(colorMatrix);
-            Graphics graphics = Graphics.FromImage(bitmapInverted);
+            Graphics graphics = Graphics.FromImage(bitmapChanged);
             graphics.DrawImage(image, new Rectangle(0, 0, image.Width, image.Height), 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, imageAttributes);
             graphics.Dispose();
 
-            ViewPort.Image = bitmapInverted;
+            ViewPort.Image = bitmapChanged;
         }
 
         // Increases the brightness of an image.
@@ -84,7 +84,7 @@ namespace ImageProcessing
         private void increaseBrightnessImageMenuStrip_Click(object sender, EventArgs e)
         {
             Image image = ViewPort.Image;
-            Bitmap bitmapInverted = new Bitmap(image.Width, image.Height);
+            Bitmap bitmapChanged = new Bitmap(image.Width, image.Height);
             ImageAttributes imageAttributes = new ImageAttributes();
             ColorMatrix colorMatrix = new ColorMatrix(new float[][]
                 {
@@ -96,46 +96,39 @@ namespace ImageProcessing
                 });
 
             imageAttributes.SetColorMatrix(colorMatrix);
-            Graphics graphics = Graphics.FromImage(bitmapInverted);
+            Graphics graphics = Graphics.FromImage(bitmapChanged);
             graphics.DrawImage(image, new Rectangle(0, 0, image.Width, image.Height), 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, imageAttributes);
             graphics.Dispose();
 
-            ViewPort.Image = bitmapInverted;
+            ViewPort.Image = bitmapChanged;
         }
 
-        private void ProcessImage(Bitmap bmp) // Convert Image to Grayscale
-        {
-            for (int i = 0; i < bmp.Width; i++)
-            {
-                for (int j = 0; j < bmp.Height; j++)
-                {
-                    Color bmpColor = bmp.GetPixel(i, j);
-
-                    int red = bmpColor.R;
-                    int green = bmpColor.G;
-                    int blue = bmpColor.B;
-                    int gray = (byte)(.299 * red + .587 * green + .114 * blue);
-
-                    red = gray;
-                    green = gray;
-                    blue = gray;
-
-                    bmp.SetPixel(i, j, Color.FromArgb(red, green, blue));
-                }
-            }
-        }
-
-        private void convertToGrayscaleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Bitmap copyBitmap = new Bitmap((Bitmap)ViewPort.Image);
-            ProcessImage(copyBitmap);
-            ViewPort.Image = copyBitmap;
-        }
-
-        private void convertToNegativeMenuImageStrip_Click(object sender, EventArgs e)
+        private void convertToGrayscaleToolStripMenuItem_Click(object sender, EventArgs e) // Converts an image to grayscale
         {
             Image image = ViewPort.Image;
-            Bitmap bitmapInverted = new Bitmap(image.Width, image.Height);
+            Bitmap bitmapChanged = new Bitmap(image.Width, image.Height);
+            ImageAttributes imageAttributes = new ImageAttributes();
+            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+                {
+                    new float[] { 0.3f,  0.3f,  0.3f, 0, 0},
+                    new float[] {0.59f, 0.59f, 0.59f, 0, 0},
+                    new float[] {0.11f, 0.11f, 0.11f, 0, 0},
+                    new float[] {    0,     0,     0, 1, 0},
+                    new float[] {    0,     0,     0, 0, 1},
+                });
+
+            imageAttributes.SetColorMatrix(colorMatrix);
+            Graphics graphics = Graphics.FromImage(bitmapChanged);
+            graphics.DrawImage(image, new Rectangle(0, 0, image.Width, image.Height), 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, imageAttributes);
+            graphics.Dispose();
+
+            ViewPort.Image = bitmapChanged;
+        }
+
+        private void convertToNegativeMenuImageStrip_Click(object sender, EventArgs e) // Converts an image to it's negative color values
+        {
+            Image image = ViewPort.Image;
+            Bitmap bitmapChanged = new Bitmap(image.Width, image.Height);
             ImageAttributes imageAttributes = new ImageAttributes();
             ColorMatrix colorMatrix = new ColorMatrix(new float[][]
                 {
@@ -147,11 +140,11 @@ namespace ImageProcessing
                 });
 
             imageAttributes.SetColorMatrix(colorMatrix);
-            Graphics graphics = Graphics.FromImage(bitmapInverted);
+            Graphics graphics = Graphics.FromImage(bitmapChanged);
             graphics.DrawImage(image, new Rectangle(0, 0, image.Width, image.Height), 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, imageAttributes);
             graphics.Dispose();
 
-            ViewPort.Image = bitmapInverted;
+            ViewPort.Image = bitmapChanged;
         }
 
         private void flipHorizontallyToolStripMenuItem_Click(object sender, EventArgs e)
