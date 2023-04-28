@@ -55,6 +55,7 @@
             ViewPort = new PictureBox();
             TransferPort = new PictureBox();
             bindingSource1 = new BindingSource(components);
+            CombineFramesMenuFrameStrip = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ViewPort).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TransferPort).BeginInit();
@@ -121,46 +122,46 @@
             // decreaseBrightnessImageMenuStrip
             // 
             decreaseBrightnessImageMenuStrip.Name = "decreaseBrightnessImageMenuStrip";
-            decreaseBrightnessImageMenuStrip.Size = new Size(180, 22);
+            decreaseBrightnessImageMenuStrip.Size = new Size(179, 22);
             decreaseBrightnessImageMenuStrip.Text = "Decrease Brightness";
             decreaseBrightnessImageMenuStrip.Click += decreaseBrightnessImageMenuStrip_Click;
             // 
             // increaseBrightnessImageMenuStrip
             // 
             increaseBrightnessImageMenuStrip.Name = "increaseBrightnessImageMenuStrip";
-            increaseBrightnessImageMenuStrip.Size = new Size(180, 22);
+            increaseBrightnessImageMenuStrip.Size = new Size(179, 22);
             increaseBrightnessImageMenuStrip.Text = "Increase Brightness";
             increaseBrightnessImageMenuStrip.Click += increaseBrightnessImageMenuStrip_Click;
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(177, 6);
+            toolStripSeparator4.Size = new Size(176, 6);
             // 
             // grayscaleToolStripMenuItem
             // 
             grayscaleToolStripMenuItem.Name = "grayscaleToolStripMenuItem";
-            grayscaleToolStripMenuItem.Size = new Size(180, 22);
+            grayscaleToolStripMenuItem.Size = new Size(179, 22);
             grayscaleToolStripMenuItem.Text = "Grayscale";
             grayscaleToolStripMenuItem.Click += convertToGrayscaleToolStripMenuItem_Click;
             // 
             // negativeMenuImageStrip
             // 
             negativeMenuImageStrip.Name = "negativeMenuImageStrip";
-            negativeMenuImageStrip.Size = new Size(180, 22);
+            negativeMenuImageStrip.Size = new Size(179, 22);
             negativeMenuImageStrip.Text = "Negative";
             negativeMenuImageStrip.Click += convertToNegativeMenuImageStrip_Click;
             // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(177, 6);
+            toolStripSeparator5.Size = new Size(176, 6);
             // 
             // transformToolStripMenuItem
             // 
             transformToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { flipHorizontallyToolStripMenuItem, flipVerticallyToolStripMenuItem, toolStripSeparator1, rotatePlus90ToolStripMenuItem, rotateMinus90ToolStripMenuItem1 });
             transformToolStripMenuItem.Name = "transformToolStripMenuItem";
-            transformToolStripMenuItem.Size = new Size(180, 22);
+            transformToolStripMenuItem.Size = new Size(179, 22);
             transformToolStripMenuItem.Text = "Transform";
             // 
             // flipHorizontallyToolStripMenuItem
@@ -198,7 +199,7 @@
             // 
             // framesToolStripMenuItem
             // 
-            framesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripFrameCount, exportFramesToolStripMenuItem });
+            framesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripFrameCount, CombineFramesMenuFrameStrip, exportFramesToolStripMenuItem });
             framesToolStripMenuItem.Name = "framesToolStripMenuItem";
             framesToolStripMenuItem.Size = new Size(57, 20);
             framesToolStripMenuItem.Text = "Frames";
@@ -239,6 +240,13 @@
             TransferPort.SizeMode = PictureBoxSizeMode.Zoom;
             TransferPort.TabIndex = 12;
             TransferPort.TabStop = false;
+            // 
+            // CombineFramesMenuFrameStrip
+            // 
+            CombineFramesMenuFrameStrip.Name = "CombineFramesMenuFrameStrip";
+            CombineFramesMenuFrameStrip.Size = new Size(180, 22);
+            CombineFramesMenuFrameStrip.Text = "Combine Frames";
+            CombineFramesMenuFrameStrip.Click += CombineFramesMenuFrameStrip_Click;
             // 
             // Form1
             // 
@@ -288,5 +296,6 @@
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripSeparator toolStripSeparator5;
         private BindingSource bindingSource1;
+        private ToolStripMenuItem CombineFramesMenuFrameStrip;
     }
 }

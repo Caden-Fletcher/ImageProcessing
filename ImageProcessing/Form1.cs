@@ -7,7 +7,7 @@ namespace ImageProcessing
         public Form1()
         {
             InitializeComponent();
-        }        
+        }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -167,6 +167,72 @@ namespace ImageProcessing
             // RotateFlip does not support negative rotations, but rotating 270° clockwise is the same as rotating -90° counterclockwise
             ViewPort.Image.RotateFlip(RotateFlipType.Rotate270FlipNone); // Rotate 270° Clockwise
             ViewPort.Refresh();
+        }
+
+        private void CombineFramesMenuFrameStrip_Click(object sender, EventArgs e)
+        {
+            /*
+             * Open File Dialog
+             * Select files to add to frames
+             * Combine files/frames to .gif
+             * Save File Dialog
+             * Show final file in ViewPort
+             * Update frameCount to show how many frames the new final file has
+             */
+
+            /*
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            // The user needs to select the last file first and work backwards, that way they get Sprite 3, 2, 1, 0 for instance
+            openFileDialog.Multiselect = true;
+            openFileDialog.ShowDialog();
+
+            // How many frames there are will be determined by how many files the user has selected
+            byte totalFrames = Convert.ToByte(openFileDialog.FileNames.Length);
+            string[] results = openFileDialog.FileNames;
+            Bitmap[] combineFrames = new Bitmap[totalFrames];
+            int i = 0; // Placeholder for putting images into the Bitmap array
+
+            foreach (string result in results)
+            {
+                MessageBox.Show(result, "Selected Item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ViewPort.Image = new Bitmap(openFileDialog.FileName);
+                combineFrames[i] = new Bitmap(result);
+            }
+
+            ImageCodecInfo gifEncoder = null;
+
+            foreach (ImageCodecInfo item in ImageCodecInfo.GetImageEncoders())
+            {
+                if (item.MimeType == "image/gif")
+                {
+                    gifEncoder = item;
+                    break;
+                }
+            }
+
+            if (gifEncoder == null)
+            {
+                MessageBox.Show("Gif encoder is null!");
+            }
+
+            // Create a new gif file
+            MessageBox.Show("Select the location you wish to store the new gif file");
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+
+            string filePath = folderBrowserDialog.SelectedPath;
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                int propertyTagFrameDelay = 0x5100;
+                int propertyTagFrameLoop = 0x5101;
+                int unitBytes = 4;
+
+                PropertyItem frameDelay = combineFrames[i].GetPropertyItem();
+            }
+
+            toolStripFrameCount.Text = "Frames: " + Convert.ToString(totalFrames);
+            */
         }
 
         private void exportFramesToolStripMenuItem_Click(object sender, EventArgs e)
