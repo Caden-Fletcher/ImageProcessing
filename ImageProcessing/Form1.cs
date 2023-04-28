@@ -1,3 +1,4 @@
+using ImageMagick;
 using System.Drawing.Imaging;
 
 namespace ImageProcessing
@@ -7,7 +8,7 @@ namespace ImageProcessing
         public Form1()
         {
             InitializeComponent();
-        }        
+        }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -167,6 +168,32 @@ namespace ImageProcessing
             // RotateFlip does not support negative rotations, but rotating 270° clockwise is the same as rotating -90° counterclockwise
             ViewPort.Image.RotateFlip(RotateFlipType.Rotate270FlipNone); // Rotate 270° Clockwise
             ViewPort.Refresh();
+        }
+
+        private void CombineFramesMenuFrameStrip_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            // The user needs to select the last file first and work backwards, that way they get Sprite 0, 1, 2, 3 for instance
+            openFileDialog.Multiselect = true;
+            openFileDialog.ShowDialog();
+
+            var images = new MagickImageCollection(); // Array to store frames for the gif
+
+            for (int i = 0; i < openFileDialog.FileNames.Length; i++)
+            {
+                images.Add(openFileDialog.FileNames[i]);
+                images[i].AnimationDelay = 4; // Placeholder number, the user should be allowed to change the delay themselves
+            }
+
+            // Save the newly created gif file
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "GIF(*.gif)|*.gif";
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                images.Write(saveFile.FileName);
+            }
         }
 
         private void exportFramesToolStripMenuItem_Click(object sender, EventArgs e)
