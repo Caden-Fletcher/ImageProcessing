@@ -1,3 +1,4 @@
+using ImageMagick;
 using System.Drawing.Imaging;
 
 namespace ImageProcessing
@@ -171,68 +172,28 @@ namespace ImageProcessing
 
         private void CombineFramesMenuFrameStrip_Click(object sender, EventArgs e)
         {
-            /*
-             * Open File Dialog
-             * Select files to add to frames
-             * Combine files/frames to .gif
-             * Save File Dialog
-             * Show final file in ViewPort
-             * Update frameCount to show how many frames the new final file has
-             */
-
-            /*
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            // The user needs to select the last file first and work backwards, that way they get Sprite 3, 2, 1, 0 for instance
+            // The user needs to select the last file first and work backwards, that way they get Sprite 0, 1, 2, 3 for instance
             openFileDialog.Multiselect = true;
             openFileDialog.ShowDialog();
 
-            // How many frames there are will be determined by how many files the user has selected
-            byte totalFrames = Convert.ToByte(openFileDialog.FileNames.Length);
-            string[] results = openFileDialog.FileNames;
-            Bitmap[] combineFrames = new Bitmap[totalFrames];
-            int i = 0; // Placeholder for putting images into the Bitmap array
+            var images = new MagickImageCollection(); // Array to store frames for the gif
 
-            foreach (string result in results)
+            for (int i = 0; i < openFileDialog.FileNames.Length; i++)
             {
-                MessageBox.Show(result, "Selected Item", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ViewPort.Image = new Bitmap(openFileDialog.FileName);
-                combineFrames[i] = new Bitmap(result);
+                images.Add(openFileDialog.FileNames[i]);
+                images[i].AnimationDelay = 4; // Placeholder number, the user should be allowed to change the delay themselves
             }
 
-            ImageCodecInfo gifEncoder = null;
+            // Save the newly created gif file
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "GIF(*.gif)|*.gif";
 
-            foreach (ImageCodecInfo item in ImageCodecInfo.GetImageEncoders())
+            if (saveFile.ShowDialog() == DialogResult.OK)
             {
-                if (item.MimeType == "image/gif")
-                {
-                    gifEncoder = item;
-                    break;
-                }
+                images.Write(saveFile.FileName);
             }
-
-            if (gifEncoder == null)
-            {
-                MessageBox.Show("Gif encoder is null!");
-            }
-
-            // Create a new gif file
-            MessageBox.Show("Select the location you wish to store the new gif file");
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-
-            string filePath = folderBrowserDialog.SelectedPath;
-
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                int propertyTagFrameDelay = 0x5100;
-                int propertyTagFrameLoop = 0x5101;
-                int unitBytes = 4;
-
-                PropertyItem frameDelay = combineFrames[i].GetPropertyItem();
-            }
-
-            toolStripFrameCount.Text = "Frames: " + Convert.ToString(totalFrames);
-            */
         }
 
         private void exportFramesToolStripMenuItem_Click(object sender, EventArgs e)
