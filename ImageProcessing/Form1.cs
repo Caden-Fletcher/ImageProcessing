@@ -4,8 +4,6 @@ namespace ImageProcessing
 {
     public partial class Form1 : Form
     {
-        ImageList imageList = new ImageList(); // Bad practice, put this into the method that uses it       
-
         public Form1()
         {
             InitializeComponent();
