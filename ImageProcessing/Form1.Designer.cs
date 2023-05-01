@@ -50,12 +50,11 @@
             rotatePlus90ToolStripMenuItem = new ToolStripMenuItem();
             rotateMinus90ToolStripMenuItem1 = new ToolStripMenuItem();
             framesToolStripMenuItem = new ToolStripMenuItem();
-            toolStripFrameCount = new ToolStripTextBox();
+            CombineFramesMenuFrameStrip = new ToolStripMenuItem();
             exportFramesToolStripMenuItem = new ToolStripMenuItem();
             ViewPort = new PictureBox();
             TransferPort = new PictureBox();
             bindingSource1 = new BindingSource(components);
-            CombineFramesMenuFrameStrip = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ViewPort).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TransferPort).BeginInit();
@@ -199,16 +198,17 @@
             // 
             // framesToolStripMenuItem
             // 
-            framesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripFrameCount, CombineFramesMenuFrameStrip, exportFramesToolStripMenuItem });
+            framesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { CombineFramesMenuFrameStrip, exportFramesToolStripMenuItem });
             framesToolStripMenuItem.Name = "framesToolStripMenuItem";
             framesToolStripMenuItem.Size = new Size(57, 20);
             framesToolStripMenuItem.Text = "Frames";
             // 
-            // toolStripFrameCount
+            // CombineFramesMenuFrameStrip
             // 
-            toolStripFrameCount.Name = "toolStripFrameCount";
-            toolStripFrameCount.Size = new Size(100, 23);
-            toolStripFrameCount.Text = "Frames: 0";
+            CombineFramesMenuFrameStrip.Name = "CombineFramesMenuFrameStrip";
+            CombineFramesMenuFrameStrip.Size = new Size(180, 22);
+            CombineFramesMenuFrameStrip.Text = "Combine Frames";
+            CombineFramesMenuFrameStrip.Click += CombineFramesMenuFrameStrip_Click;
             // 
             // exportFramesToolStripMenuItem
             // 
@@ -240,13 +240,6 @@
             TransferPort.SizeMode = PictureBoxSizeMode.Zoom;
             TransferPort.TabIndex = 12;
             TransferPort.TabStop = false;
-            // 
-            // CombineFramesMenuFrameStrip
-            // 
-            CombineFramesMenuFrameStrip.Name = "CombineFramesMenuFrameStrip";
-            CombineFramesMenuFrameStrip.Size = new Size(180, 22);
-            CombineFramesMenuFrameStrip.Text = "Combine Frames";
-            CombineFramesMenuFrameStrip.Click += CombineFramesMenuFrameStrip_Click;
             // 
             // Form1
             // 
@@ -287,7 +280,6 @@
         private ToolStripMenuItem rotatePlus90ToolStripMenuItem;
         private PictureBox ViewPort;
         private ToolStripMenuItem framesToolStripMenuItem;
-        private ToolStripTextBox toolStripFrameCount;
         private ToolStripMenuItem exportFramesToolStripMenuItem;
         private PictureBox TransferPort;
         private ToolStripMenuItem negativeMenuImageStrip;

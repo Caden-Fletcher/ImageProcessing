@@ -201,11 +201,7 @@ namespace ImageProcessing
             FrameDimension frameDimension = new FrameDimension(ViewPort.Image.FrameDimensionsList[0]);
 
             int frameCount = ViewPort.Image.GetFrameCount(frameDimension);
-            toolStripFrameCount.Text = "Frames: " + frameCount.ToString();
-
             Image[] getFrames = new Image[frameCount];
-
-
 
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             DialogResult dialogResult = dialog.ShowDialog();
