@@ -49,9 +49,9 @@
             toolStripSeparator1 = new ToolStripSeparator();
             rotatePlus90ToolStripMenuItem = new ToolStripMenuItem();
             rotateMinus90ToolStripMenuItem1 = new ToolStripMenuItem();
-            framesToolStripMenuItem = new ToolStripMenuItem();
-            CombineFramesMenuFrameStrip = new ToolStripMenuItem();
-            exportFramesToolStripMenuItem = new ToolStripMenuItem();
+            AnimationMenuStripItem = new ToolStripMenuItem();
+            CombineGIFFramesMenuStripItem = new ToolStripMenuItem();
+            ExportGIFFramesMenuStripItem = new ToolStripMenuItem();
             ViewPort = new PictureBox();
             bindingSource1 = new BindingSource(components);
             menuStrip1.SuspendLayout();
@@ -61,7 +61,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, imageToolStripMenuItem, framesToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, imageToolStripMenuItem, AnimationMenuStripItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(853, 24);
@@ -194,26 +194,26 @@
             rotateMinus90ToolStripMenuItem1.Text = "Rotate -90°";
             rotateMinus90ToolStripMenuItem1.Click += rotateMinus90ToolStripMenuItem1_Click;
             // 
-            // framesToolStripMenuItem
+            // AnimationMenuStripItem
             // 
-            framesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { CombineFramesMenuFrameStrip, exportFramesToolStripMenuItem });
-            framesToolStripMenuItem.Name = "framesToolStripMenuItem";
-            framesToolStripMenuItem.Size = new Size(57, 20);
-            framesToolStripMenuItem.Text = "Frames";
+            AnimationMenuStripItem.DropDownItems.AddRange(new ToolStripItem[] { CombineGIFFramesMenuStripItem, ExportGIFFramesMenuStripItem });
+            AnimationMenuStripItem.Name = "AnimationMenuStripItem";
+            AnimationMenuStripItem.Size = new Size(75, 20);
+            AnimationMenuStripItem.Text = "Animation";
             // 
-            // CombineFramesMenuFrameStrip
+            // CombineGIFFramesMenuStripItem
             // 
-            CombineFramesMenuFrameStrip.Name = "CombineFramesMenuFrameStrip";
-            CombineFramesMenuFrameStrip.Size = new Size(164, 22);
-            CombineFramesMenuFrameStrip.Text = "Combine Frames";
-            CombineFramesMenuFrameStrip.Click += CombineFramesMenuFrameStrip_Click;
+            CombineGIFFramesMenuStripItem.Name = "CombineGIFFramesMenuStripItem";
+            CombineGIFFramesMenuStripItem.Size = new Size(184, 22);
+            CombineGIFFramesMenuStripItem.Text = "Combine GIF Frames";
+            CombineGIFFramesMenuStripItem.Click += CombineFramesMenuFrameStrip_Click;
             // 
-            // exportFramesToolStripMenuItem
+            // ExportGIFFramesMenuStripItem
             // 
-            exportFramesToolStripMenuItem.Name = "exportFramesToolStripMenuItem";
-            exportFramesToolStripMenuItem.Size = new Size(164, 22);
-            exportFramesToolStripMenuItem.Text = "Export Frames";
-            exportFramesToolStripMenuItem.Click += exportFramesToolStripMenuItem_Click;
+            ExportGIFFramesMenuStripItem.Name = "ExportGIFFramesMenuStripItem";
+            ExportGIFFramesMenuStripItem.Size = new Size(184, 22);
+            ExportGIFFramesMenuStripItem.Text = "Export GIF Frames";
+            ExportGIFFramesMenuStripItem.Click += exportFramesToolStripMenuItem_Click;
             // 
             // ViewPort
             // 
@@ -263,14 +263,14 @@
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem rotatePlus90ToolStripMenuItem;
         private PictureBox ViewPort;
-        private ToolStripMenuItem framesToolStripMenuItem;
-        private ToolStripMenuItem exportFramesToolStripMenuItem;
+        private ToolStripMenuItem AnimationMenuStripItem;
+        private ToolStripMenuItem ExportGIFFramesMenuStripItem;
         private ToolStripMenuItem negativeMenuImageStrip;
         private ToolStripMenuItem increaseBrightnessImageMenuStrip;
         private ToolStripMenuItem decreaseBrightnessImageMenuStrip;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripSeparator toolStripSeparator5;
         private BindingSource bindingSource1;
-        private ToolStripMenuItem CombineFramesMenuFrameStrip;
+        private ToolStripMenuItem CombineGIFFramesMenuStripItem;
     }
 }
