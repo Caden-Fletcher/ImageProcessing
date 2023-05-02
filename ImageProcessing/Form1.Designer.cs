@@ -53,11 +53,9 @@
             CombineFramesMenuFrameStrip = new ToolStripMenuItem();
             exportFramesToolStripMenuItem = new ToolStripMenuItem();
             ViewPort = new PictureBox();
-            TransferPort = new PictureBox();
             bindingSource1 = new BindingSource(components);
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ViewPort).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)TransferPort).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
@@ -66,7 +64,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, imageToolStripMenuItem, framesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1097, 24);
+            menuStrip1.Size = new Size(853, 24);
             menuStrip1.TabIndex = 10;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -206,14 +204,14 @@
             // CombineFramesMenuFrameStrip
             // 
             CombineFramesMenuFrameStrip.Name = "CombineFramesMenuFrameStrip";
-            CombineFramesMenuFrameStrip.Size = new Size(180, 22);
+            CombineFramesMenuFrameStrip.Size = new Size(164, 22);
             CombineFramesMenuFrameStrip.Text = "Combine Frames";
             CombineFramesMenuFrameStrip.Click += CombineFramesMenuFrameStrip_Click;
             // 
             // exportFramesToolStripMenuItem
             // 
             exportFramesToolStripMenuItem.Name = "exportFramesToolStripMenuItem";
-            exportFramesToolStripMenuItem.Size = new Size(180, 22);
+            exportFramesToolStripMenuItem.Size = new Size(164, 22);
             exportFramesToolStripMenuItem.Text = "Export Frames";
             exportFramesToolStripMenuItem.Click += exportFramesToolStripMenuItem_Click;
             // 
@@ -229,24 +227,11 @@
             ViewPort.TabIndex = 11;
             ViewPort.TabStop = false;
             // 
-            // TransferPort
-            // 
-            TransferPort.BackColor = Color.FromArgb(224, 224, 224);
-            TransferPort.BackgroundImageLayout = ImageLayout.Center;
-            TransferPort.BorderStyle = BorderStyle.FixedSingle;
-            TransferPort.Location = new Point(845, 27);
-            TransferPort.Name = "TransferPort";
-            TransferPort.Size = new Size(242, 627);
-            TransferPort.SizeMode = PictureBoxSizeMode.Zoom;
-            TransferPort.TabIndex = 12;
-            TransferPort.TabStop = false;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1097, 666);
-            Controls.Add(TransferPort);
+            ClientSize = new Size(853, 666);
             Controls.Add(ViewPort);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -256,7 +241,6 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ViewPort).EndInit();
-            ((System.ComponentModel.ISupportInitialize)TransferPort).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -281,7 +265,6 @@
         private PictureBox ViewPort;
         private ToolStripMenuItem framesToolStripMenuItem;
         private ToolStripMenuItem exportFramesToolStripMenuItem;
-        private PictureBox TransferPort;
         private ToolStripMenuItem negativeMenuImageStrip;
         private ToolStripMenuItem increaseBrightnessImageMenuStrip;
         private ToolStripMenuItem decreaseBrightnessImageMenuStrip;

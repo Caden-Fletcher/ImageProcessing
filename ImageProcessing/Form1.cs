@@ -193,6 +193,8 @@ namespace ImageProcessing
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
                 images.Write(saveFile.FileName);
+
+                MessageBox.Show("The file was created succesfully!");
             }
         }
 
@@ -203,6 +205,14 @@ namespace ImageProcessing
             int frameCount = ViewPort.Image.GetFrameCount(frameDimension);
             Image[] getFrames = new Image[frameCount];
 
+            // Store the frames in an array
+            for (int i = 0; i < frameCount; i++)
+            {
+                ViewPort.Image.SelectActiveFrame(frameDimension, i);
+                getFrames[i] = new Bitmap(ViewPort.Image);
+            }
+
+            // Export the frames in the array
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             DialogResult dialogResult = dialog.ShowDialog();
 
@@ -210,15 +220,10 @@ namespace ImageProcessing
             {
                 string filePath = dialog.SelectedPath;
 
-                for (int i = 0; i < frameCount; i++) // Retrieve and export frames
+                for (int i = 0; i < frameCount; i++)
                 {
-                    ViewPort.Image.SelectActiveFrame(frameDimension, i);
-
-                    getFrames[i] = new Bitmap(ViewPort.Image); // Store the current frame in the array
-                    TransferPort.Image = getFrames[i];
-
                     string path = Path.Combine(filePath, string.Format("Sprite-{0}.png", i));
-                    TransferPort.Image.Save(path);
+                    getFrames[i].Save(path);
                 }
 
                 MessageBox.Show("The program exported " + frameCount + " frames succesfully!");
