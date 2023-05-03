@@ -11,3 +11,4 @@ Currently the program allows the user to:
 - Rotate an Image +90° / -90°
 - Combine several images to create a .gif animation
 - Export the frames of a .gif animation
+- Modify the frame delay of a .gif that will be combined (delay is in centiseconds)
