@@ -180,7 +180,13 @@ namespace ImageProcessing
 
             var images = new MagickImageCollection(); // Array to store frames for the gif
 
-            for (int i = 0; i < openFileDialog.FileNames.Length; i++)
+            if (ModifyGIFFrameDelayTextbox.Text.All(char.IsLetter)) // Make sure the input in the Frame Delay box isn't a non-number
+            {
+                ModifyGIFFrameDelayTextbox.Text = "4";
+                MessageBox.Show("The value in Modify GIF Frame Delay was not a valid number, defaulting to 4 centiseconds.");
+            }
+
+            for (int i = 0; i < openFileDialog.FileNames.Length; i++) // Store the files in the array as frames
             {
                 images.Add(openFileDialog.FileNames[i]);
                 images[i].AnimationDelay = Convert.ToInt32(ModifyGIFFrameDelayTextbox.Text);
