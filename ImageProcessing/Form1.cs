@@ -183,7 +183,7 @@ namespace ImageProcessing
             for (int i = 0; i < openFileDialog.FileNames.Length; i++)
             {
                 images.Add(openFileDialog.FileNames[i]);
-                images[i].AnimationDelay = 4; // Placeholder number, the user should be allowed to change the delay themselves
+                images[i].AnimationDelay = Convert.ToInt32(ModifyGIFFrameDelayTextbox.Text);
             }
 
             // Save the newly created gif file
@@ -195,6 +195,7 @@ namespace ImageProcessing
                 images.Write(saveFile.FileName);
 
                 MessageBox.Show("The file was created succesfully!");
+                MessageBox.Show("The created GIF has a frame delay of " + ModifyGIFFrameDelayTextbox.Text + " centiseconds.");
             }
         }
 

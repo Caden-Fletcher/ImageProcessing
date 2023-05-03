@@ -52,6 +52,8 @@
             AnimationMenuStripItem = new ToolStripMenuItem();
             CombineGIFFramesMenuStripItem = new ToolStripMenuItem();
             ExportGIFFramesMenuStripItem = new ToolStripMenuItem();
+            ModifyGIFFrameDelayMenu = new ToolStripMenuItem();
+            ModifyGIFFrameDelayTextbox = new ToolStripTextBox();
             ViewPort = new PictureBox();
             bindingSource1 = new BindingSource(components);
             menuStrip1.SuspendLayout();
@@ -196,7 +198,7 @@
             // 
             // AnimationMenuStripItem
             // 
-            AnimationMenuStripItem.DropDownItems.AddRange(new ToolStripItem[] { CombineGIFFramesMenuStripItem, ExportGIFFramesMenuStripItem });
+            AnimationMenuStripItem.DropDownItems.AddRange(new ToolStripItem[] { CombineGIFFramesMenuStripItem, ExportGIFFramesMenuStripItem, ModifyGIFFrameDelayMenu });
             AnimationMenuStripItem.Name = "AnimationMenuStripItem";
             AnimationMenuStripItem.Size = new Size(75, 20);
             AnimationMenuStripItem.Text = "Animation";
@@ -204,16 +206,29 @@
             // CombineGIFFramesMenuStripItem
             // 
             CombineGIFFramesMenuStripItem.Name = "CombineGIFFramesMenuStripItem";
-            CombineGIFFramesMenuStripItem.Size = new Size(184, 22);
+            CombineGIFFramesMenuStripItem.Size = new Size(200, 22);
             CombineGIFFramesMenuStripItem.Text = "Combine GIF Frames";
             CombineGIFFramesMenuStripItem.Click += CombineFramesMenuFrameStrip_Click;
             // 
             // ExportGIFFramesMenuStripItem
             // 
             ExportGIFFramesMenuStripItem.Name = "ExportGIFFramesMenuStripItem";
-            ExportGIFFramesMenuStripItem.Size = new Size(184, 22);
+            ExportGIFFramesMenuStripItem.Size = new Size(200, 22);
             ExportGIFFramesMenuStripItem.Text = "Export GIF Frames";
             ExportGIFFramesMenuStripItem.Click += exportFramesToolStripMenuItem_Click;
+            // 
+            // ModifyGIFFrameDelayMenu
+            // 
+            ModifyGIFFrameDelayMenu.DropDownItems.AddRange(new ToolStripItem[] { ModifyGIFFrameDelayTextbox });
+            ModifyGIFFrameDelayMenu.Name = "ModifyGIFFrameDelayMenu";
+            ModifyGIFFrameDelayMenu.Size = new Size(200, 22);
+            ModifyGIFFrameDelayMenu.Text = "Modify GIF Frame Delay";
+            // 
+            // ModifyGIFFrameDelayTextbox
+            // 
+            ModifyGIFFrameDelayTextbox.Name = "ModifyGIFFrameDelayTextbox";
+            ModifyGIFFrameDelayTextbox.Size = new Size(100, 23);
+            ModifyGIFFrameDelayTextbox.Text = "4";
             // 
             // ViewPort
             // 
@@ -272,5 +287,7 @@
         private ToolStripSeparator toolStripSeparator5;
         private BindingSource bindingSource1;
         private ToolStripMenuItem CombineGIFFramesMenuStripItem;
+        private ToolStripMenuItem ModifyGIFFrameDelayMenu;
+        private ToolStripTextBox ModifyGIFFrameDelayTextbox;
     }
 }
