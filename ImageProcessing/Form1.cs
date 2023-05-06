@@ -220,16 +220,16 @@ namespace ImageProcessing
             }
 
             // Export the frames in the array
-            FolderBrowserDialog dialog = new FolderBrowserDialog();
-            DialogResult dialogResult = dialog.ShowDialog();
+            SaveFileDialog exportFrames = new SaveFileDialog();
+            DialogResult dialogResult = exportFrames.ShowDialog();
 
             if (dialogResult == DialogResult.OK)
             {
-                string filePath = dialog.SelectedPath;
+                string filePath = exportFrames.FileName;
 
                 for (int i = 0; i < frameCount; i++)
                 {
-                    string path = Path.Combine(filePath, string.Format("Sprite-{0}.png", i));
+                    string path = Path.Combine(filePath, string.Format(filePath + " {0}.png", i));
                     getFrames[i].Save(path);
                 }
 
