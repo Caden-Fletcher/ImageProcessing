@@ -190,6 +190,7 @@ namespace ImageProcessing
             {
                 images.Add(openFileDialog.FileNames[i]);
                 images[i].AnimationDelay = Convert.ToInt32(ModifyGIFFrameDelayTextbox.Text);
+                images[i].GifDisposeMethod = GifDisposeMethod.Previous;
             }
 
             // Save the newly created gif file
