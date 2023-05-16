@@ -56,9 +56,11 @@
             ModifyGIFFrameDelayTextbox = new ToolStripTextBox();
             ViewPort = new PictureBox();
             bindingSource1 = new BindingSource(components);
+            ViewPortPanel = new Panel();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ViewPort).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
+            ViewPortPanel.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -66,7 +68,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, imageToolStripMenuItem, AnimationMenuStripItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(853, 24);
+            menuStrip1.Size = new Size(864, 24);
             menuStrip1.TabIndex = 10;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -235,19 +237,29 @@
             ViewPort.BackColor = Color.FromArgb(224, 224, 224);
             ViewPort.BackgroundImageLayout = ImageLayout.Center;
             ViewPort.BorderStyle = BorderStyle.FixedSingle;
-            ViewPort.Location = new Point(12, 27);
+            ViewPort.Location = new Point(3, 3);
             ViewPort.Name = "ViewPort";
-            ViewPort.Size = new Size(827, 627);
+            ViewPort.Size = new Size(840, 640);
             ViewPort.SizeMode = PictureBoxSizeMode.Zoom;
             ViewPort.TabIndex = 11;
             ViewPort.TabStop = false;
+            // 
+            // ViewPortPanel
+            // 
+            ViewPortPanel.AutoScroll = true;
+            ViewPortPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ViewPortPanel.Controls.Add(ViewPort);
+            ViewPortPanel.Location = new Point(12, 27);
+            ViewPortPanel.Name = "ViewPortPanel";
+            ViewPortPanel.Size = new Size(840, 640);
+            ViewPortPanel.TabIndex = 13;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(853, 666);
-            Controls.Add(ViewPort);
+            ClientSize = new Size(864, 674);
+            Controls.Add(ViewPortPanel);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
@@ -257,6 +269,7 @@
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ViewPort).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
+            ViewPortPanel.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -289,5 +302,6 @@
         private ToolStripMenuItem CombineGIFFramesMenuStripItem;
         private ToolStripMenuItem ModifyGIFFrameDelayMenu;
         private ToolStripTextBox ModifyGIFFrameDelayTextbox;
+        private Panel ViewPortPanel;
     }
 }
