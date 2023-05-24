@@ -178,7 +178,7 @@ namespace ImageProcessing
             openFileDialog.Multiselect = true;
             openFileDialog.ShowDialog();
 
-            var images = new MagickImageCollection(); // Array to store frames for the gif
+            using var images = new MagickImageCollection(); // Array to store frames for the gif
 
             if (ModifyGIFFrameDelayTextbox.Text.All(char.IsLetter)) // Make sure the input in the Frame Delay box isn't a non-number
             {
