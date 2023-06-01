@@ -30,30 +30,30 @@
         {
             components = new System.ComponentModel.Container();
             menuStrip1 = new MenuStrip();
-            fileToolStripMenuItem = new ToolStripMenuItem();
-            openToolStripMenuItem = new ToolStripMenuItem();
+            FileMenu = new ToolStripMenuItem();
+            FileMenu_Open = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
-            saveAsToolStripMenuItem = new ToolStripMenuItem();
+            FileMenu_SaveAs = new ToolStripMenuItem();
             toolStripSeparator3 = new ToolStripSeparator();
-            quitToolStripMenuItem = new ToolStripMenuItem();
-            imageToolStripMenuItem = new ToolStripMenuItem();
-            decreaseBrightnessImageMenuStrip = new ToolStripMenuItem();
-            increaseBrightnessImageMenuStrip = new ToolStripMenuItem();
+            FileMenu_Quit = new ToolStripMenuItem();
+            ImageMenu = new ToolStripMenuItem();
+            ImageMenu_DecreaseBrightness = new ToolStripMenuItem();
+            ImageMenu_IncreaseBrightness = new ToolStripMenuItem();
             toolStripSeparator4 = new ToolStripSeparator();
-            grayscaleToolStripMenuItem = new ToolStripMenuItem();
-            negativeMenuImageStrip = new ToolStripMenuItem();
+            ImageMenu_Grayscale = new ToolStripMenuItem();
+            ImageMenu_Negative = new ToolStripMenuItem();
             toolStripSeparator5 = new ToolStripSeparator();
-            transformToolStripMenuItem = new ToolStripMenuItem();
-            flipHorizontallyToolStripMenuItem = new ToolStripMenuItem();
-            flipVerticallyToolStripMenuItem = new ToolStripMenuItem();
+            ImageMenu_Transform = new ToolStripMenuItem();
+            ImageMenu_Transform_FlipHorizontally = new ToolStripMenuItem();
+            ImageMenu_Transform_FlipVertically = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
-            rotatePlus90ToolStripMenuItem = new ToolStripMenuItem();
-            rotateMinus90ToolStripMenuItem1 = new ToolStripMenuItem();
-            AnimationMenuStripItem = new ToolStripMenuItem();
-            CombineGIFFramesMenuStripItem = new ToolStripMenuItem();
-            ExportGIFFramesMenuStripItem = new ToolStripMenuItem();
-            ModifyGIFFrameDelayMenu = new ToolStripMenuItem();
-            ModifyGIFFrameDelayTextbox = new ToolStripTextBox();
+            ImageMenu_Transform_RotatePlus90 = new ToolStripMenuItem();
+            ImageMenu_Transform_RotateMinus90 = new ToolStripMenuItem();
+            AnimationMenu = new ToolStripMenuItem();
+            AnimationMenu_CombineGIFFrames = new ToolStripMenuItem();
+            AnimationMenu_ExportGIFFrames = new ToolStripMenuItem();
+            AnimationMenu_ModifyGIFFrameDelay = new ToolStripMenuItem();
+            AnimationMenu_ModifyGIFFrameDelay_Textbox = new ToolStripTextBox();
             ColorsMenu = new ToolStripMenuItem();
             ColorsMenu_ColorShift = new ToolStripMenuItem();
             ViewPort = new PictureBox();
@@ -67,174 +67,174 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, imageToolStripMenuItem, AnimationMenuStripItem, ColorsMenu });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { FileMenu, ImageMenu, AnimationMenu, ColorsMenu });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(864, 24);
             menuStrip1.TabIndex = 10;
             menuStrip1.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // FileMenu
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, toolStripSeparator2, saveAsToolStripMenuItem, toolStripSeparator3, quitToolStripMenuItem });
-            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(37, 20);
-            fileToolStripMenuItem.Text = "File";
+            FileMenu.DropDownItems.AddRange(new ToolStripItem[] { FileMenu_Open, toolStripSeparator2, FileMenu_SaveAs, toolStripSeparator3, FileMenu_Quit });
+            FileMenu.Name = "FileMenu";
+            FileMenu.Size = new Size(37, 20);
+            FileMenu.Text = "File";
             // 
-            // openToolStripMenuItem
+            // FileMenu_Open
             // 
-            openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
-            openToolStripMenuItem.Size = new Size(186, 22);
-            openToolStripMenuItem.Text = "Open";
-            openToolStripMenuItem.Click += openToolStripMenuItem_Click;
+            FileMenu_Open.Name = "FileMenu_Open";
+            FileMenu_Open.ShortcutKeys = Keys.Control | Keys.O;
+            FileMenu_Open.Size = new Size(186, 22);
+            FileMenu_Open.Text = "Open";
+            FileMenu_Open.Click += openToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
             toolStripSeparator2.Size = new Size(183, 6);
             // 
-            // saveAsToolStripMenuItem
+            // FileMenu_SaveAs
             // 
-            saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            saveAsToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Shift | Keys.S;
-            saveAsToolStripMenuItem.Size = new Size(186, 22);
-            saveAsToolStripMenuItem.Text = "Save As";
-            saveAsToolStripMenuItem.Click += saveAsToolStripMenuItem_Click;
+            FileMenu_SaveAs.Name = "FileMenu_SaveAs";
+            FileMenu_SaveAs.ShortcutKeys = Keys.Control | Keys.Shift | Keys.S;
+            FileMenu_SaveAs.Size = new Size(186, 22);
+            FileMenu_SaveAs.Text = "Save As";
+            FileMenu_SaveAs.Click += saveAsToolStripMenuItem_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
             toolStripSeparator3.Size = new Size(183, 6);
             // 
-            // quitToolStripMenuItem
+            // FileMenu_Quit
             // 
-            quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            quitToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Q;
-            quitToolStripMenuItem.Size = new Size(186, 22);
-            quitToolStripMenuItem.Text = "Quit";
-            quitToolStripMenuItem.Click += quitToolStripMenuItem_Click;
+            FileMenu_Quit.Name = "FileMenu_Quit";
+            FileMenu_Quit.ShortcutKeys = Keys.Control | Keys.Q;
+            FileMenu_Quit.Size = new Size(186, 22);
+            FileMenu_Quit.Text = "Quit";
+            FileMenu_Quit.Click += quitToolStripMenuItem_Click;
             // 
-            // imageToolStripMenuItem
+            // ImageMenu
             // 
-            imageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { decreaseBrightnessImageMenuStrip, increaseBrightnessImageMenuStrip, toolStripSeparator4, grayscaleToolStripMenuItem, negativeMenuImageStrip, toolStripSeparator5, transformToolStripMenuItem });
-            imageToolStripMenuItem.Name = "imageToolStripMenuItem";
-            imageToolStripMenuItem.Size = new Size(52, 20);
-            imageToolStripMenuItem.Text = "Image";
+            ImageMenu.DropDownItems.AddRange(new ToolStripItem[] { ImageMenu_DecreaseBrightness, ImageMenu_IncreaseBrightness, toolStripSeparator4, ImageMenu_Grayscale, ImageMenu_Negative, toolStripSeparator5, ImageMenu_Transform });
+            ImageMenu.Name = "ImageMenu";
+            ImageMenu.Size = new Size(52, 20);
+            ImageMenu.Text = "Image";
             // 
-            // decreaseBrightnessImageMenuStrip
+            // ImageMenu_DecreaseBrightness
             // 
-            decreaseBrightnessImageMenuStrip.Name = "decreaseBrightnessImageMenuStrip";
-            decreaseBrightnessImageMenuStrip.Size = new Size(180, 22);
-            decreaseBrightnessImageMenuStrip.Text = "Decrease Brightness";
-            decreaseBrightnessImageMenuStrip.Click += decreaseBrightnessImageMenuStrip_Click;
+            ImageMenu_DecreaseBrightness.Name = "ImageMenu_DecreaseBrightness";
+            ImageMenu_DecreaseBrightness.Size = new Size(180, 22);
+            ImageMenu_DecreaseBrightness.Text = "Decrease Brightness";
+            ImageMenu_DecreaseBrightness.Click += decreaseBrightnessImageMenuStrip_Click;
             // 
-            // increaseBrightnessImageMenuStrip
+            // ImageMenu_IncreaseBrightness
             // 
-            increaseBrightnessImageMenuStrip.Name = "increaseBrightnessImageMenuStrip";
-            increaseBrightnessImageMenuStrip.Size = new Size(180, 22);
-            increaseBrightnessImageMenuStrip.Text = "Increase Brightness";
-            increaseBrightnessImageMenuStrip.Click += increaseBrightnessImageMenuStrip_Click;
+            ImageMenu_IncreaseBrightness.Name = "ImageMenu_IncreaseBrightness";
+            ImageMenu_IncreaseBrightness.Size = new Size(180, 22);
+            ImageMenu_IncreaseBrightness.Text = "Increase Brightness";
+            ImageMenu_IncreaseBrightness.Click += increaseBrightnessImageMenuStrip_Click;
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
             toolStripSeparator4.Size = new Size(177, 6);
             // 
-            // grayscaleToolStripMenuItem
+            // ImageMenu_Grayscale
             // 
-            grayscaleToolStripMenuItem.Name = "grayscaleToolStripMenuItem";
-            grayscaleToolStripMenuItem.Size = new Size(180, 22);
-            grayscaleToolStripMenuItem.Text = "Grayscale";
-            grayscaleToolStripMenuItem.ToolTipText = "Get the grayscale of an image.";
-            grayscaleToolStripMenuItem.Click += convertToGrayscaleToolStripMenuItem_Click;
+            ImageMenu_Grayscale.Name = "ImageMenu_Grayscale";
+            ImageMenu_Grayscale.Size = new Size(180, 22);
+            ImageMenu_Grayscale.Text = "Grayscale";
+            ImageMenu_Grayscale.ToolTipText = "Get the grayscale of an image.";
+            ImageMenu_Grayscale.Click += convertToGrayscaleToolStripMenuItem_Click;
             // 
-            // negativeMenuImageStrip
+            // ImageMenu_Negative
             // 
-            negativeMenuImageStrip.Name = "negativeMenuImageStrip";
-            negativeMenuImageStrip.Size = new Size(180, 22);
-            negativeMenuImageStrip.Text = "Negative";
-            negativeMenuImageStrip.ToolTipText = "Get the negative equivalent of an image.";
-            negativeMenuImageStrip.Click += convertToNegativeMenuImageStrip_Click;
+            ImageMenu_Negative.Name = "ImageMenu_Negative";
+            ImageMenu_Negative.Size = new Size(180, 22);
+            ImageMenu_Negative.Text = "Negative";
+            ImageMenu_Negative.ToolTipText = "Get the negative equivalent of an image.";
+            ImageMenu_Negative.Click += convertToNegativeMenuImageStrip_Click;
             // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
             toolStripSeparator5.Size = new Size(177, 6);
             // 
-            // transformToolStripMenuItem
+            // ImageMenu_Transform
             // 
-            transformToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { flipHorizontallyToolStripMenuItem, flipVerticallyToolStripMenuItem, toolStripSeparator1, rotatePlus90ToolStripMenuItem, rotateMinus90ToolStripMenuItem1 });
-            transformToolStripMenuItem.Name = "transformToolStripMenuItem";
-            transformToolStripMenuItem.Size = new Size(180, 22);
-            transformToolStripMenuItem.Text = "Transform";
+            ImageMenu_Transform.DropDownItems.AddRange(new ToolStripItem[] { ImageMenu_Transform_FlipHorizontally, ImageMenu_Transform_FlipVertically, toolStripSeparator1, ImageMenu_Transform_RotatePlus90, ImageMenu_Transform_RotateMinus90 });
+            ImageMenu_Transform.Name = "ImageMenu_Transform";
+            ImageMenu_Transform.Size = new Size(180, 22);
+            ImageMenu_Transform.Text = "Transform";
             // 
-            // flipHorizontallyToolStripMenuItem
+            // ImageMenu_Transform_FlipHorizontally
             // 
-            flipHorizontallyToolStripMenuItem.Name = "flipHorizontallyToolStripMenuItem";
-            flipHorizontallyToolStripMenuItem.Size = new Size(160, 22);
-            flipHorizontallyToolStripMenuItem.Text = "Flip Horizontally";
-            flipHorizontallyToolStripMenuItem.Click += flipHorizontallyToolStripMenuItem_Click;
+            ImageMenu_Transform_FlipHorizontally.Name = "ImageMenu_Transform_FlipHorizontally";
+            ImageMenu_Transform_FlipHorizontally.Size = new Size(180, 22);
+            ImageMenu_Transform_FlipHorizontally.Text = "Flip Horizontally";
+            ImageMenu_Transform_FlipHorizontally.Click += flipHorizontallyToolStripMenuItem_Click;
             // 
-            // flipVerticallyToolStripMenuItem
+            // ImageMenu_Transform_FlipVertically
             // 
-            flipVerticallyToolStripMenuItem.Name = "flipVerticallyToolStripMenuItem";
-            flipVerticallyToolStripMenuItem.Size = new Size(160, 22);
-            flipVerticallyToolStripMenuItem.Text = "Flip Vertically";
-            flipVerticallyToolStripMenuItem.Click += flipVerticallyToolStripMenuItem_Click;
+            ImageMenu_Transform_FlipVertically.Name = "ImageMenu_Transform_FlipVertically";
+            ImageMenu_Transform_FlipVertically.Size = new Size(180, 22);
+            ImageMenu_Transform_FlipVertically.Text = "Flip Vertically";
+            ImageMenu_Transform_FlipVertically.Click += flipVerticallyToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(157, 6);
+            toolStripSeparator1.Size = new Size(177, 6);
             // 
-            // rotatePlus90ToolStripMenuItem
+            // ImageMenu_Transform_RotatePlus90
             // 
-            rotatePlus90ToolStripMenuItem.Name = "rotatePlus90ToolStripMenuItem";
-            rotatePlus90ToolStripMenuItem.Size = new Size(160, 22);
-            rotatePlus90ToolStripMenuItem.Text = "Rotate +90°";
-            rotatePlus90ToolStripMenuItem.Click += rotatePlus90ToolStripMenuItem_Click;
+            ImageMenu_Transform_RotatePlus90.Name = "ImageMenu_Transform_RotatePlus90";
+            ImageMenu_Transform_RotatePlus90.Size = new Size(180, 22);
+            ImageMenu_Transform_RotatePlus90.Text = "Rotate +90°";
+            ImageMenu_Transform_RotatePlus90.Click += rotatePlus90ToolStripMenuItem_Click;
             // 
-            // rotateMinus90ToolStripMenuItem1
+            // ImageMenu_Transform_RotateMinus90
             // 
-            rotateMinus90ToolStripMenuItem1.Name = "rotateMinus90ToolStripMenuItem1";
-            rotateMinus90ToolStripMenuItem1.Size = new Size(160, 22);
-            rotateMinus90ToolStripMenuItem1.Text = "Rotate -90°";
-            rotateMinus90ToolStripMenuItem1.Click += rotateMinus90ToolStripMenuItem1_Click;
+            ImageMenu_Transform_RotateMinus90.Name = "ImageMenu_Transform_RotateMinus90";
+            ImageMenu_Transform_RotateMinus90.Size = new Size(180, 22);
+            ImageMenu_Transform_RotateMinus90.Text = "Rotate -90°";
+            ImageMenu_Transform_RotateMinus90.Click += rotateMinus90ToolStripMenuItem1_Click;
             // 
-            // AnimationMenuStripItem
+            // AnimationMenu
             // 
-            AnimationMenuStripItem.DropDownItems.AddRange(new ToolStripItem[] { CombineGIFFramesMenuStripItem, ExportGIFFramesMenuStripItem, ModifyGIFFrameDelayMenu });
-            AnimationMenuStripItem.Name = "AnimationMenuStripItem";
-            AnimationMenuStripItem.Size = new Size(75, 20);
-            AnimationMenuStripItem.Text = "Animation";
+            AnimationMenu.DropDownItems.AddRange(new ToolStripItem[] { AnimationMenu_CombineGIFFrames, AnimationMenu_ExportGIFFrames, AnimationMenu_ModifyGIFFrameDelay });
+            AnimationMenu.Name = "AnimationMenu";
+            AnimationMenu.Size = new Size(75, 20);
+            AnimationMenu.Text = "Animation";
             // 
-            // CombineGIFFramesMenuStripItem
+            // AnimationMenu_CombineGIFFrames
             // 
-            CombineGIFFramesMenuStripItem.Name = "CombineGIFFramesMenuStripItem";
-            CombineGIFFramesMenuStripItem.Size = new Size(200, 22);
-            CombineGIFFramesMenuStripItem.Text = "Combine GIF Frames";
-            CombineGIFFramesMenuStripItem.Click += CombineFramesMenuFrameStrip_Click;
+            AnimationMenu_CombineGIFFrames.Name = "AnimationMenu_CombineGIFFrames";
+            AnimationMenu_CombineGIFFrames.Size = new Size(200, 22);
+            AnimationMenu_CombineGIFFrames.Text = "Combine GIF Frames";
+            AnimationMenu_CombineGIFFrames.Click += CombineFramesMenuFrameStrip_Click;
             // 
-            // ExportGIFFramesMenuStripItem
+            // AnimationMenu_ExportGIFFrames
             // 
-            ExportGIFFramesMenuStripItem.Name = "ExportGIFFramesMenuStripItem";
-            ExportGIFFramesMenuStripItem.Size = new Size(200, 22);
-            ExportGIFFramesMenuStripItem.Text = "Export GIF Frames";
-            ExportGIFFramesMenuStripItem.Click += exportFramesToolStripMenuItem_Click;
+            AnimationMenu_ExportGIFFrames.Name = "AnimationMenu_ExportGIFFrames";
+            AnimationMenu_ExportGIFFrames.Size = new Size(200, 22);
+            AnimationMenu_ExportGIFFrames.Text = "Export GIF Frames";
+            AnimationMenu_ExportGIFFrames.Click += exportFramesToolStripMenuItem_Click;
             // 
-            // ModifyGIFFrameDelayMenu
+            // AnimationMenu_ModifyGIFFrameDelay
             // 
-            ModifyGIFFrameDelayMenu.DropDownItems.AddRange(new ToolStripItem[] { ModifyGIFFrameDelayTextbox });
-            ModifyGIFFrameDelayMenu.Name = "ModifyGIFFrameDelayMenu";
-            ModifyGIFFrameDelayMenu.Size = new Size(200, 22);
-            ModifyGIFFrameDelayMenu.Text = "Modify GIF Frame Delay";
+            AnimationMenu_ModifyGIFFrameDelay.DropDownItems.AddRange(new ToolStripItem[] { AnimationMenu_ModifyGIFFrameDelay_Textbox });
+            AnimationMenu_ModifyGIFFrameDelay.Name = "AnimationMenu_ModifyGIFFrameDelay";
+            AnimationMenu_ModifyGIFFrameDelay.Size = new Size(200, 22);
+            AnimationMenu_ModifyGIFFrameDelay.Text = "Modify GIF Frame Delay";
             // 
-            // ModifyGIFFrameDelayTextbox
+            // AnimationMenu_ModifyGIFFrameDelay_Textbox
             // 
-            ModifyGIFFrameDelayTextbox.Name = "ModifyGIFFrameDelayTextbox";
-            ModifyGIFFrameDelayTextbox.Size = new Size(100, 23);
-            ModifyGIFFrameDelayTextbox.Text = "4";
+            AnimationMenu_ModifyGIFFrameDelay_Textbox.Name = "AnimationMenu_ModifyGIFFrameDelay_Textbox";
+            AnimationMenu_ModifyGIFFrameDelay_Textbox.Size = new Size(100, 23);
+            AnimationMenu_ModifyGIFFrameDelay_Textbox.Text = "4";
             // 
             // ColorsMenu
             // 
@@ -295,32 +295,32 @@
 
         #endregion
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem openToolStripMenuItem;
-        private ToolStripMenuItem quitToolStripMenuItem;
-        private ToolStripMenuItem imageToolStripMenuItem;
-        private ToolStripMenuItem transformToolStripMenuItem;
-        private ToolStripMenuItem flipHorizontallyToolStripMenuItem;
-        private ToolStripMenuItem flipVerticallyToolStripMenuItem;
+        private ToolStripMenuItem FileMenu;
+        private ToolStripMenuItem FileMenu_Open;
+        private ToolStripMenuItem FileMenu_Quit;
+        private ToolStripMenuItem ImageMenu;
+        private ToolStripMenuItem ImageMenu_Transform;
+        private ToolStripMenuItem ImageMenu_Transform_FlipHorizontally;
+        private ToolStripMenuItem ImageMenu_Transform_FlipVertically;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripMenuItem rotateMinus90ToolStripMenuItem1;
-        private ToolStripMenuItem grayscaleToolStripMenuItem;
+        private ToolStripMenuItem ImageMenu_Transform_RotateMinus90;
+        private ToolStripMenuItem ImageMenu_Grayscale;
         private ToolStripSeparator toolStripSeparator2;
-        private ToolStripMenuItem saveAsToolStripMenuItem;
+        private ToolStripMenuItem FileMenu_SaveAs;
         private ToolStripSeparator toolStripSeparator3;
-        private ToolStripMenuItem rotatePlus90ToolStripMenuItem;
+        private ToolStripMenuItem ImageMenu_Transform_RotatePlus90;
         private PictureBox ViewPort;
-        private ToolStripMenuItem AnimationMenuStripItem;
-        private ToolStripMenuItem ExportGIFFramesMenuStripItem;
-        private ToolStripMenuItem negativeMenuImageStrip;
-        private ToolStripMenuItem increaseBrightnessImageMenuStrip;
-        private ToolStripMenuItem decreaseBrightnessImageMenuStrip;
+        private ToolStripMenuItem AnimationMenu;
+        private ToolStripMenuItem AnimationMenu_ExportGIFFrames;
+        private ToolStripMenuItem ImageMenu_Negative;
+        private ToolStripMenuItem ImageMenu_IncreaseBrightness;
+        private ToolStripMenuItem ImageMenu_DecreaseBrightness;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripSeparator toolStripSeparator5;
         private BindingSource bindingSource1;
-        private ToolStripMenuItem CombineGIFFramesMenuStripItem;
-        private ToolStripMenuItem ModifyGIFFrameDelayMenu;
-        private ToolStripTextBox ModifyGIFFrameDelayTextbox;
+        private ToolStripMenuItem AnimationMenu_CombineGIFFrames;
+        private ToolStripMenuItem AnimationMenu_ModifyGIFFrameDelay;
+        private ToolStripTextBox AnimationMenu_ModifyGIFFrameDelay_Textbox;
         private Panel ViewPortPanel;
         private ToolStripMenuItem ColorsMenu;
         private ToolStripMenuItem ColorsMenu_ColorShift;

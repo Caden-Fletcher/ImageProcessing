@@ -180,16 +180,16 @@ namespace ImageProcessing
 
             using var images = new MagickImageCollection(); // Array to store frames for the gif
 
-            if (ModifyGIFFrameDelayTextbox.Text.All(char.IsLetter)) // Make sure the input in the Frame Delay box isn't a non-number
+            if (AnimationMenu_ModifyGIFFrameDelay_Textbox.Text.All(char.IsLetter)) // Make sure the input in the Frame Delay box isn't a non-number
             {
-                ModifyGIFFrameDelayTextbox.Text = "4";
+                AnimationMenu_ModifyGIFFrameDelay_Textbox.Text = "4";
                 MessageBox.Show("The value in Modify GIF Frame Delay was not a valid number, defaulting to 4 centiseconds.");
             }
 
             for (int i = 0; i < openFileDialog.FileNames.Length; i++) // Store the files in the array as frames
             {
                 images.Add(openFileDialog.FileNames[i]);
-                images[i].AnimationDelay = Convert.ToInt32(ModifyGIFFrameDelayTextbox.Text);
+                images[i].AnimationDelay = Convert.ToInt32(AnimationMenu_ModifyGIFFrameDelay_Textbox.Text);
                 images[i].GifDisposeMethod = GifDisposeMethod.Previous;
                 images[i].Scale(new Percentage(100));
             }
@@ -203,7 +203,7 @@ namespace ImageProcessing
                 images.Write(saveFile.FileName);
 
                 MessageBox.Show("The file was created succesfully!");
-                MessageBox.Show("The created GIF has a frame delay of " + ModifyGIFFrameDelayTextbox.Text + " centiseconds.");
+                MessageBox.Show("The created GIF has a frame delay of " + AnimationMenu_ModifyGIFFrameDelay_Textbox.Text + " centiseconds.");
             }
         }
 
