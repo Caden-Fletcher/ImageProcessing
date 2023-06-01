@@ -55,7 +55,7 @@
             AnimationMenu_ModifyGIFFrameDelay = new ToolStripMenuItem();
             AnimationMenu_ModifyGIFFrameDelay_Textbox = new ToolStripTextBox();
             ColorsMenu = new ToolStripMenuItem();
-            ColorsMenu_ColorShift = new ToolStripMenuItem();
+            ColorsMenu_FindAndReplaceColors = new ToolStripMenuItem();
             ViewPort = new PictureBox();
             bindingSource1 = new BindingSource(components);
             ViewPortPanel = new Panel();
@@ -146,7 +146,7 @@
             ImageMenu_Grayscale.Name = "ImageMenu_Grayscale";
             ImageMenu_Grayscale.Size = new Size(180, 22);
             ImageMenu_Grayscale.Text = "Grayscale";
-            ImageMenu_Grayscale.ToolTipText = "Get the grayscale of an image.";
+            ImageMenu_Grayscale.ToolTipText = "Convert an image to a grayscale equivalent.";
             ImageMenu_Grayscale.Click += convertToGrayscaleToolStripMenuItem_Click;
             // 
             // ImageMenu_Negative
@@ -154,7 +154,7 @@
             ImageMenu_Negative.Name = "ImageMenu_Negative";
             ImageMenu_Negative.Size = new Size(180, 22);
             ImageMenu_Negative.Text = "Negative";
-            ImageMenu_Negative.ToolTipText = "Get the negative equivalent of an image.";
+            ImageMenu_Negative.ToolTipText = "Convert an image to a negative equivalent.";
             ImageMenu_Negative.Click += convertToNegativeMenuImageStrip_Click;
             // 
             // toolStripSeparator5
@@ -172,33 +172,33 @@
             // ImageMenu_Transform_FlipHorizontally
             // 
             ImageMenu_Transform_FlipHorizontally.Name = "ImageMenu_Transform_FlipHorizontally";
-            ImageMenu_Transform_FlipHorizontally.Size = new Size(180, 22);
+            ImageMenu_Transform_FlipHorizontally.Size = new Size(160, 22);
             ImageMenu_Transform_FlipHorizontally.Text = "Flip Horizontally";
             ImageMenu_Transform_FlipHorizontally.Click += flipHorizontallyToolStripMenuItem_Click;
             // 
             // ImageMenu_Transform_FlipVertically
             // 
             ImageMenu_Transform_FlipVertically.Name = "ImageMenu_Transform_FlipVertically";
-            ImageMenu_Transform_FlipVertically.Size = new Size(180, 22);
+            ImageMenu_Transform_FlipVertically.Size = new Size(160, 22);
             ImageMenu_Transform_FlipVertically.Text = "Flip Vertically";
             ImageMenu_Transform_FlipVertically.Click += flipVerticallyToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(177, 6);
+            toolStripSeparator1.Size = new Size(157, 6);
             // 
             // ImageMenu_Transform_RotatePlus90
             // 
             ImageMenu_Transform_RotatePlus90.Name = "ImageMenu_Transform_RotatePlus90";
-            ImageMenu_Transform_RotatePlus90.Size = new Size(180, 22);
+            ImageMenu_Transform_RotatePlus90.Size = new Size(160, 22);
             ImageMenu_Transform_RotatePlus90.Text = "Rotate +90°";
             ImageMenu_Transform_RotatePlus90.Click += rotatePlus90ToolStripMenuItem_Click;
             // 
             // ImageMenu_Transform_RotateMinus90
             // 
             ImageMenu_Transform_RotateMinus90.Name = "ImageMenu_Transform_RotateMinus90";
-            ImageMenu_Transform_RotateMinus90.Size = new Size(180, 22);
+            ImageMenu_Transform_RotateMinus90.Size = new Size(160, 22);
             ImageMenu_Transform_RotateMinus90.Text = "Rotate -90°";
             ImageMenu_Transform_RotateMinus90.Click += rotateMinus90ToolStripMenuItem1_Click;
             // 
@@ -238,18 +238,18 @@
             // 
             // ColorsMenu
             // 
-            ColorsMenu.DropDownItems.AddRange(new ToolStripItem[] { ColorsMenu_ColorShift });
+            ColorsMenu.DropDownItems.AddRange(new ToolStripItem[] { ColorsMenu_FindAndReplaceColors });
             ColorsMenu.Name = "ColorsMenu";
             ColorsMenu.Size = new Size(53, 20);
             ColorsMenu.Text = "Colors";
             // 
-            // ColorsMenu_ColorShift
+            // ColorsMenu_FindAndReplaceColors
             // 
-            ColorsMenu_ColorShift.Name = "ColorsMenu_ColorShift";
-            ColorsMenu_ColorShift.Size = new Size(180, 22);
-            ColorsMenu_ColorShift.Text = "Color Shift";
-            ColorsMenu_ColorShift.ToolTipText = "Replaces all instances of a color in an image with a new color.";
-            ColorsMenu_ColorShift.Click += ColorsMenu_ColorShift_Click;
+            ColorsMenu_FindAndReplaceColors.Name = "ColorsMenu_FindAndReplaceColors";
+            ColorsMenu_FindAndReplaceColors.Size = new Size(201, 22);
+            ColorsMenu_FindAndReplaceColors.Text = "Find and Replace Colors";
+            ColorsMenu_FindAndReplaceColors.ToolTipText = "Replaces all instances of a color in an image with a new color.";
+            ColorsMenu_FindAndReplaceColors.Click += ColorsMenu_ColorShift_Click;
             // 
             // ViewPort
             // 
@@ -323,6 +323,6 @@
         private ToolStripTextBox AnimationMenu_ModifyGIFFrameDelay_Textbox;
         private Panel ViewPortPanel;
         private ToolStripMenuItem ColorsMenu;
-        private ToolStripMenuItem ColorsMenu_ColorShift;
+        private ToolStripMenuItem ColorsMenu_FindAndReplaceColors;
     }
 }
