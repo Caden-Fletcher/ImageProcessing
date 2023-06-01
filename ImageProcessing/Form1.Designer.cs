@@ -54,6 +54,8 @@
             ExportGIFFramesMenuStripItem = new ToolStripMenuItem();
             ModifyGIFFrameDelayMenu = new ToolStripMenuItem();
             ModifyGIFFrameDelayTextbox = new ToolStripTextBox();
+            ColorsMenu = new ToolStripMenuItem();
+            ColorsMenu_ColorShift = new ToolStripMenuItem();
             ViewPort = new PictureBox();
             bindingSource1 = new BindingSource(components);
             ViewPortPanel = new Panel();
@@ -65,7 +67,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, imageToolStripMenuItem, AnimationMenuStripItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, imageToolStripMenuItem, AnimationMenuStripItem, ColorsMenu });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(864, 24);
@@ -232,6 +234,20 @@
             ModifyGIFFrameDelayTextbox.Size = new Size(100, 23);
             ModifyGIFFrameDelayTextbox.Text = "4";
             // 
+            // ColorsMenu
+            // 
+            ColorsMenu.DropDownItems.AddRange(new ToolStripItem[] { ColorsMenu_ColorShift });
+            ColorsMenu.Name = "ColorsMenu";
+            ColorsMenu.Size = new Size(53, 20);
+            ColorsMenu.Text = "Colors";
+            // 
+            // ColorsMenu_ColorShift
+            // 
+            ColorsMenu_ColorShift.Name = "ColorsMenu_ColorShift";
+            ColorsMenu_ColorShift.Size = new Size(180, 22);
+            ColorsMenu_ColorShift.Text = "Color Shift";
+            ColorsMenu_ColorShift.ToolTipText = "Replaces all instances of a color in an image with a new color.";
+            // 
             // ViewPort
             // 
             ViewPort.BackColor = Color.FromArgb(224, 224, 224);
@@ -303,5 +319,7 @@
         private ToolStripMenuItem ModifyGIFFrameDelayMenu;
         private ToolStripTextBox ModifyGIFFrameDelayTextbox;
         private Panel ViewPortPanel;
+        private ToolStripMenuItem ColorsMenu;
+        private ToolStripMenuItem ColorsMenu_ColorShift;
     }
 }
