@@ -191,7 +191,7 @@ namespace ImageProcessing
                 images.Add(openFileDialog.FileNames[i]);
                 images[i].AnimationDelay = Convert.ToInt32(ModifyGIFFrameDelayTextbox.Text);
                 images[i].GifDisposeMethod = GifDisposeMethod.Previous;
-                images[i].Scale(new Percentage (100));
+                images[i].Scale(new Percentage(100));
             }
 
             // Save the newly created gif file
@@ -294,7 +294,7 @@ namespace ImageProcessing
             if (dialogResult == DialogResult.OK)
             {
                 string filePath = saveFileDialog.FileName;
-                
+
                 images.Write(saveFileDialog.FileName);
 
                 MessageBox.Show("The file was saved succesfully!");
