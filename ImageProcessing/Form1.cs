@@ -191,6 +191,7 @@ namespace ImageProcessing
                 images.Add(openFileDialog.FileNames[i]);
                 images[i].AnimationDelay = Convert.ToInt32(ModifyGIFFrameDelayTextbox.Text);
                 images[i].GifDisposeMethod = GifDisposeMethod.Previous;
+                images[i].Scale(new Percentage (100));
             }
 
             // Save the newly created gif file
@@ -235,6 +236,94 @@ namespace ImageProcessing
                 }
 
                 MessageBox.Show("The program exported " + frameCount + " frames succesfully!");
+            }
+        }
+
+        private void ColorsMenu_ColorShift_Click(object sender, EventArgs e)
+        {
+            /*
+             * Team colors of a Zerg Mutalisk
+             * 
+             * Colors below are shades of the listed color.
+             * 
+             * Shades of Magenta
+             * FF00FF - (255,0,255)
+             * DE00DE - (222,0,222)
+             * BD00BD - (189,0,189)
+             * 9C009C - (156,0,156)
+             * 7C007C - (124,0,124)
+             * 5B005B - (91,0,91)
+             * 3A003A - (58,0,58)
+             * 190019 - (25,0,25)
+             * 
+             * Shades of Red
+             * F70F0F - (247,15,15)
+             * BF1717 - (191,23,23)
+             * BF1717 - (191,23,23)
+             * A20F0F - (162,15,15)
+             * 820000 - (130,0,0)
+             * 6B0000 - (107,0,0)
+             * 550000 - (85,0,0)
+             * 260000 - (38,0,0)
+             */
+
+            // Retrieve an image
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.ShowDialog();
+
+            // Load the image into an array
+            using var images = new MagickImageCollection();
+            images.Add(openFileDialog.FileName);
+
+            /*
+            var targetColor = MagickColor.FromRgb((byte)255, (byte)0, (byte)255); // Desired Color
+            images[0].Opaque(MagickColor.FromRgb((byte)255, (byte)255, (byte)255), // Color to Change
+                             MagickColor.FromRgb((byte)targetColor.R, (byte)targetColor.G, (byte)targetColor.B)); // Change the Color
+            */
+
+            var targetColorOne = MagickColor.FromRgb((byte)247, (byte)15, (byte)15); // Red
+            images[0].Opaque(MagickColor.FromRgb((byte)255, (byte)0, (byte)255), // Color to Change
+                             MagickColor.FromRgb((byte)targetColorOne.R, (byte)targetColorOne.G, (byte)targetColorOne.B));
+
+            var targetColorTwo = MagickColor.FromRgb((byte)191, (byte)23, (byte)23); // Red
+            images[0].Opaque(MagickColor.FromRgb((byte)222, (byte)0, (byte)222), // Color to Change
+                             MagickColor.FromRgb((byte)targetColorTwo.R, (byte)targetColorTwo.G, (byte)targetColorTwo.B));
+
+            var targetColorThree = MagickColor.FromRgb((byte)191, (byte)23, (byte)23); // Red
+            images[0].Opaque(MagickColor.FromRgb((byte)189, (byte)0, (byte)189), // Color to Change
+                             MagickColor.FromRgb((byte)targetColorThree.R, (byte)targetColorThree.G, (byte)targetColorThree.B));
+
+            var targetColorFour = MagickColor.FromRgb((byte)162, (byte)15, (byte)15); // Red
+            images[0].Opaque(MagickColor.FromRgb((byte)156, (byte)0, (byte)156), // Color to Change
+                             MagickColor.FromRgb((byte)targetColorFour.R, (byte)targetColorFour.G, (byte)targetColorFour.B));
+
+            var targetColorFive = MagickColor.FromRgb((byte)130, (byte)0, (byte)0); // Red
+            images[0].Opaque(MagickColor.FromRgb((byte)124, (byte)0, (byte)124), // Color to Change
+                             MagickColor.FromRgb((byte)targetColorFive.R, (byte)targetColorFive.G, (byte)targetColorFive.B));
+
+            var targetColorSix = MagickColor.FromRgb((byte)107, (byte)0, (byte)0); // Red
+            images[0].Opaque(MagickColor.FromRgb((byte)91, (byte)0, (byte)91), // Color to Change
+                             MagickColor.FromRgb((byte)targetColorSix.R, (byte)targetColorSix.G, (byte)targetColorSix.B));
+
+            var targetColorSeven = MagickColor.FromRgb((byte)85, (byte)0, (byte)0); // Red
+            images[0].Opaque(MagickColor.FromRgb((byte)58, (byte)0, (byte)58), // Color to Change
+                             MagickColor.FromRgb((byte)targetColorSeven.R, (byte)targetColorSeven.G, (byte)targetColorSeven.B));
+
+            var targetColorEight = MagickColor.FromRgb((byte)38, (byte)0, (byte)0); // Red
+            images[0].Opaque(MagickColor.FromRgb((byte)25, (byte)0, (byte)25), // Color to Change
+                             MagickColor.FromRgb((byte)targetColorEight.R, (byte)targetColorEight.G, (byte)targetColorEight.B));
+
+            // Save the image
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            DialogResult dialogResult = saveFileDialog.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+                
+                images.Write(saveFileDialog.FileName);
+
+                MessageBox.Show("The file was saved succesfully!");
             }
         }
     }

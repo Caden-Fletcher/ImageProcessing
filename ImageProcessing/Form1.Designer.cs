@@ -247,6 +247,7 @@
             ColorsMenu_ColorShift.Size = new Size(180, 22);
             ColorsMenu_ColorShift.Text = "Color Shift";
             ColorsMenu_ColorShift.ToolTipText = "Replaces all instances of a color in an image with a new color.";
+            ColorsMenu_ColorShift.Click += ColorsMenu_ColorShift_Click;
             // 
             // ViewPort
             // 
