@@ -241,32 +241,6 @@ namespace ImageProcessing
 
         private void ColorsMenu_ColorShift_Click(object sender, EventArgs e)
         {
-            /*
-             * Team colors of a Zerg Mutalisk
-             * 
-             * Colors below are shades of the listed color.
-             * 
-             * Shades of Magenta
-             * FF00FF - (255,0,255)
-             * DE00DE - (222,0,222)
-             * BD00BD - (189,0,189)
-             * 9C009C - (156,0,156)
-             * 7C007C - (124,0,124)
-             * 5B005B - (91,0,91)
-             * 3A003A - (58,0,58)
-             * 190019 - (25,0,25)
-             * 
-             * Shades of Red
-             * F70F0F - (247,15,15)
-             * BF1717 - (191,23,23)
-             * BF1717 - (191,23,23)
-             * A20F0F - (162,15,15)
-             * 820000 - (130,0,0)
-             * 6B0000 - (107,0,0)
-             * 550000 - (85,0,0)
-             * 260000 - (38,0,0)
-             */
-
             // Retrieve an image
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.ShowDialog();
