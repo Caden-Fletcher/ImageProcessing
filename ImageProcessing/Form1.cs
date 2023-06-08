@@ -5,6 +5,8 @@ namespace ImageProcessing
 {
     public partial class Form1 : Form
     {
+        private string currentImageFilePath = string.Empty; // Whatever image is in the ViewPort is the FilePath stored here
+
         public Form1()
         {
             InitializeComponent();
@@ -241,13 +243,9 @@ namespace ImageProcessing
 
         private void ColorsMenu_ColorShift_Click(object sender, EventArgs e)
         {
-            // Retrieve an image
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.ShowDialog();
-
             // Load the image into an array
             using var images = new MagickImageCollection();
-            images.Add(openFileDialog.FileName);
+            images.Add(currentImageFilePath);
 
             /*
             var targetColor = MagickColor.FromRgb((byte)255, (byte)0, (byte)255); // Desired Color
