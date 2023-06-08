@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            menuStrip1 = new MenuStrip();
+            MenuStrip = new MenuStrip();
             FileMenu = new ToolStripMenuItem();
             FileMenu_Open = new ToolStripMenuItem();
-            toolStripSeparator2 = new ToolStripSeparator();
+            FileMenu_Separator1 = new ToolStripSeparator();
             FileMenu_SaveAs = new ToolStripMenuItem();
-            toolStripSeparator3 = new ToolStripSeparator();
+            FileMenu_Separator2 = new ToolStripSeparator();
             FileMenu_Quit = new ToolStripMenuItem();
             ImageMenu = new ToolStripMenuItem();
             ImageMenu_DecreaseBrightness = new ToolStripMenuItem();
             ImageMenu_IncreaseBrightness = new ToolStripMenuItem();
-            toolStripSeparator4 = new ToolStripSeparator();
+            ImageMenu_Separator1 = new ToolStripSeparator();
             ImageMenu_Grayscale = new ToolStripMenuItem();
             ImageMenu_Negative = new ToolStripMenuItem();
-            toolStripSeparator5 = new ToolStripSeparator();
+            ImageMenu_Separator2 = new ToolStripSeparator();
             ImageMenu_Transform = new ToolStripMenuItem();
             ImageMenu_Transform_FlipHorizontally = new ToolStripMenuItem();
             ImageMenu_Transform_FlipVertically = new ToolStripMenuItem();
-            toolStripSeparator1 = new ToolStripSeparator();
+            ImageMenu_Transform_Separator1 = new ToolStripSeparator();
             ImageMenu_Transform_RotatePlus90 = new ToolStripMenuItem();
             ImageMenu_Transform_RotateMinus90 = new ToolStripMenuItem();
             AnimationMenu = new ToolStripMenuItem();
@@ -59,24 +59,24 @@
             ViewPort = new PictureBox();
             bindingSource1 = new BindingSource(components);
             ViewPortPanel = new Panel();
-            menuStrip1.SuspendLayout();
+            MenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ViewPort).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             ViewPortPanel.SuspendLayout();
             SuspendLayout();
             // 
-            // menuStrip1
+            // MenuStrip
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { FileMenu, ImageMenu, AnimationMenu, ColorsMenu });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(864, 24);
-            menuStrip1.TabIndex = 10;
-            menuStrip1.Text = "menuStrip1";
+            MenuStrip.Items.AddRange(new ToolStripItem[] { FileMenu, ImageMenu, AnimationMenu, ColorsMenu });
+            MenuStrip.Location = new Point(0, 0);
+            MenuStrip.Name = "MenuStrip";
+            MenuStrip.Size = new Size(864, 24);
+            MenuStrip.TabIndex = 10;
+            MenuStrip.Text = "menuStrip1";
             // 
             // FileMenu
             // 
-            FileMenu.DropDownItems.AddRange(new ToolStripItem[] { FileMenu_Open, toolStripSeparator2, FileMenu_SaveAs, toolStripSeparator3, FileMenu_Quit });
+            FileMenu.DropDownItems.AddRange(new ToolStripItem[] { FileMenu_Open, FileMenu_Separator1, FileMenu_SaveAs, FileMenu_Separator2, FileMenu_Quit });
             FileMenu.Name = "FileMenu";
             FileMenu.Size = new Size(37, 20);
             FileMenu.Text = "File";
@@ -89,10 +89,10 @@
             FileMenu_Open.Text = "Open";
             FileMenu_Open.Click += openToolStripMenuItem_Click;
             // 
-            // toolStripSeparator2
+            // FileMenu_Separator1
             // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(183, 6);
+            FileMenu_Separator1.Name = "FileMenu_Separator1";
+            FileMenu_Separator1.Size = new Size(183, 6);
             // 
             // FileMenu_SaveAs
             // 
@@ -102,10 +102,10 @@
             FileMenu_SaveAs.Text = "Save As";
             FileMenu_SaveAs.Click += saveAsToolStripMenuItem_Click;
             // 
-            // toolStripSeparator3
+            // FileMenu_Separator2
             // 
-            toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(183, 6);
+            FileMenu_Separator2.Name = "FileMenu_Separator2";
+            FileMenu_Separator2.Size = new Size(183, 6);
             // 
             // FileMenu_Quit
             // 
@@ -117,7 +117,7 @@
             // 
             // ImageMenu
             // 
-            ImageMenu.DropDownItems.AddRange(new ToolStripItem[] { ImageMenu_DecreaseBrightness, ImageMenu_IncreaseBrightness, toolStripSeparator4, ImageMenu_Grayscale, ImageMenu_Negative, toolStripSeparator5, ImageMenu_Transform });
+            ImageMenu.DropDownItems.AddRange(new ToolStripItem[] { ImageMenu_DecreaseBrightness, ImageMenu_IncreaseBrightness, ImageMenu_Separator1, ImageMenu_Grayscale, ImageMenu_Negative, ImageMenu_Separator2, ImageMenu_Transform });
             ImageMenu.Name = "ImageMenu";
             ImageMenu.Size = new Size(52, 20);
             ImageMenu.Text = "Image";
@@ -136,10 +136,10 @@
             ImageMenu_IncreaseBrightness.Text = "Increase Brightness";
             ImageMenu_IncreaseBrightness.Click += increaseBrightnessImageMenuStrip_Click;
             // 
-            // toolStripSeparator4
+            // ImageMenu_Separator1
             // 
-            toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(177, 6);
+            ImageMenu_Separator1.Name = "ImageMenu_Separator1";
+            ImageMenu_Separator1.Size = new Size(177, 6);
             // 
             // ImageMenu_Grayscale
             // 
@@ -157,14 +157,14 @@
             ImageMenu_Negative.ToolTipText = "Convert an image to a negative equivalent.";
             ImageMenu_Negative.Click += convertToNegativeMenuImageStrip_Click;
             // 
-            // toolStripSeparator5
+            // ImageMenu_Separator2
             // 
-            toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(177, 6);
+            ImageMenu_Separator2.Name = "ImageMenu_Separator2";
+            ImageMenu_Separator2.Size = new Size(177, 6);
             // 
             // ImageMenu_Transform
             // 
-            ImageMenu_Transform.DropDownItems.AddRange(new ToolStripItem[] { ImageMenu_Transform_FlipHorizontally, ImageMenu_Transform_FlipVertically, toolStripSeparator1, ImageMenu_Transform_RotatePlus90, ImageMenu_Transform_RotateMinus90 });
+            ImageMenu_Transform.DropDownItems.AddRange(new ToolStripItem[] { ImageMenu_Transform_FlipHorizontally, ImageMenu_Transform_FlipVertically, ImageMenu_Transform_Separator1, ImageMenu_Transform_RotatePlus90, ImageMenu_Transform_RotateMinus90 });
             ImageMenu_Transform.Name = "ImageMenu_Transform";
             ImageMenu_Transform.Size = new Size(180, 22);
             ImageMenu_Transform.Text = "Transform";
@@ -172,33 +172,33 @@
             // ImageMenu_Transform_FlipHorizontally
             // 
             ImageMenu_Transform_FlipHorizontally.Name = "ImageMenu_Transform_FlipHorizontally";
-            ImageMenu_Transform_FlipHorizontally.Size = new Size(160, 22);
+            ImageMenu_Transform_FlipHorizontally.Size = new Size(180, 22);
             ImageMenu_Transform_FlipHorizontally.Text = "Flip Horizontally";
             ImageMenu_Transform_FlipHorizontally.Click += flipHorizontallyToolStripMenuItem_Click;
             // 
             // ImageMenu_Transform_FlipVertically
             // 
             ImageMenu_Transform_FlipVertically.Name = "ImageMenu_Transform_FlipVertically";
-            ImageMenu_Transform_FlipVertically.Size = new Size(160, 22);
+            ImageMenu_Transform_FlipVertically.Size = new Size(180, 22);
             ImageMenu_Transform_FlipVertically.Text = "Flip Vertically";
             ImageMenu_Transform_FlipVertically.Click += flipVerticallyToolStripMenuItem_Click;
             // 
-            // toolStripSeparator1
+            // ImageMenu_Transform_Separator1
             // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(157, 6);
+            ImageMenu_Transform_Separator1.Name = "ImageMenu_Transform_Separator1";
+            ImageMenu_Transform_Separator1.Size = new Size(177, 6);
             // 
             // ImageMenu_Transform_RotatePlus90
             // 
             ImageMenu_Transform_RotatePlus90.Name = "ImageMenu_Transform_RotatePlus90";
-            ImageMenu_Transform_RotatePlus90.Size = new Size(160, 22);
+            ImageMenu_Transform_RotatePlus90.Size = new Size(180, 22);
             ImageMenu_Transform_RotatePlus90.Text = "Rotate +90°";
             ImageMenu_Transform_RotatePlus90.Click += rotatePlus90ToolStripMenuItem_Click;
             // 
             // ImageMenu_Transform_RotateMinus90
             // 
             ImageMenu_Transform_RotateMinus90.Name = "ImageMenu_Transform_RotateMinus90";
-            ImageMenu_Transform_RotateMinus90.Size = new Size(160, 22);
+            ImageMenu_Transform_RotateMinus90.Size = new Size(180, 22);
             ImageMenu_Transform_RotateMinus90.Text = "Rotate -90°";
             ImageMenu_Transform_RotateMinus90.Click += rotateMinus90ToolStripMenuItem1_Click;
             // 
@@ -279,13 +279,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(864, 674);
             Controls.Add(ViewPortPanel);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
+            Controls.Add(MenuStrip);
+            MainMenuStrip = MenuStrip;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Image Processor";
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            MenuStrip.ResumeLayout(false);
+            MenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ViewPort).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ViewPortPanel.ResumeLayout(false);
@@ -294,7 +294,7 @@
         }
 
         #endregion
-        private MenuStrip menuStrip1;
+        private MenuStrip MenuStrip;
         private ToolStripMenuItem FileMenu;
         private ToolStripMenuItem FileMenu_Open;
         private ToolStripMenuItem FileMenu_Quit;
@@ -302,12 +302,12 @@
         private ToolStripMenuItem ImageMenu_Transform;
         private ToolStripMenuItem ImageMenu_Transform_FlipHorizontally;
         private ToolStripMenuItem ImageMenu_Transform_FlipVertically;
-        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripSeparator ImageMenu_Transform_Separator1;
         private ToolStripMenuItem ImageMenu_Transform_RotateMinus90;
         private ToolStripMenuItem ImageMenu_Grayscale;
-        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripSeparator FileMenu_Separator1;
         private ToolStripMenuItem FileMenu_SaveAs;
-        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripSeparator FileMenu_Separator2;
         private ToolStripMenuItem ImageMenu_Transform_RotatePlus90;
         private PictureBox ViewPort;
         private ToolStripMenuItem AnimationMenu;
@@ -315,8 +315,8 @@
         private ToolStripMenuItem ImageMenu_Negative;
         private ToolStripMenuItem ImageMenu_IncreaseBrightness;
         private ToolStripMenuItem ImageMenu_DecreaseBrightness;
-        private ToolStripSeparator toolStripSeparator4;
-        private ToolStripSeparator toolStripSeparator5;
+        private ToolStripSeparator ImageMenu_Separator1;
+        private ToolStripSeparator ImageMenu_Separator2;
         private BindingSource bindingSource1;
         private ToolStripMenuItem AnimationMenu_CombineGIFFrames;
         private ToolStripMenuItem AnimationMenu_ModifyGIFFrameDelay;
