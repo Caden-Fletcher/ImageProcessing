@@ -241,6 +241,48 @@ namespace ImageProcessing
             }
         }
 
+        private void AnimationMenu_ExportSpriteFromSpritesheet_Click(object sender, EventArgs e) // TODO
+        {
+            var spriteSheet = new MagickImage(currentImageFilePath);
+
+            // Verifying that user input is correct for all fields
+            if (AnimationMenu_ExportSpriteFromSpritesheet_RowsTextbox.Text.All(char.IsLetter)) // Make sure the input isn't a non-number
+            {
+                AnimationMenu_ExportSpriteFromSpritesheet_RowsTextbox.Text = "1";
+                MessageBox.Show("Invalid value in Export Sprite from Spritesheet - Rows, defaulting to 1 row.");
+            }
+
+            if (AnimationMenu_ExportSpriteFromSpritesheet_ColumnsTextbox.Text.All(char.IsLetter)) // Make sure the input isn't a non-number
+            {
+                AnimationMenu_ExportSpriteFromSpritesheet_ColumnsTextbox.Text = "1";
+                MessageBox.Show("Invalid value in Export Sprite from Spritesheet - Columns, defaulting to 1 column.");
+            }
+
+            if (AnimationMenu_ExportSpriteFromSpritesheet_HeightTextbox.Text.All(char.IsLetter)) // Make sure the input isn't a non-number
+            {
+                AnimationMenu_ExportSpriteFromSpritesheet_HeightTextbox.Text = "1";
+                MessageBox.Show("Invalid value in Export Sprite from Spritesheet - Height, defaulting to a height of 1.");
+            }
+
+            if (AnimationMenu_ExportSpriteFromSpritesheet_WidthTextbox.Text.All(char.IsLetter)) // Make sure the input isn't a non-number
+            {
+                AnimationMenu_ExportSpriteFromSpritesheet_WidthTextbox.Text = "1";
+                MessageBox.Show("Invalid value in Export Sprite from Spritesheet - Width, defaulting to a width of 1.");
+            }
+
+            if (AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacingTextbox.Text.All(char.IsLetter)) // Make sure the input isn't a non-number
+            {
+                AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacingTextbox.Text = "1";
+                MessageBox.Show("Invalid value in Export Sprite from Spritesheet - Horizontal Spacing, defaulting to a horizontal spacing of 1.");
+            }
+
+            if (AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacingTextbox.Text.All(char.IsLetter)) // Make sure the input isn't a non-number
+            {
+                AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacingTextbox.Text = "1";
+                MessageBox.Show("Invalid value in Export Sprite from Spritesheet - Vertical Spacing, defaulting to a vertical spacing of 1.");
+            }
+        }
+
         private void ColorsMenu_ColorShift_Click(object sender, EventArgs e)
         {
             // Load the image into an array
@@ -297,6 +339,6 @@ namespace ImageProcessing
 
                 MessageBox.Show("The file was saved succesfully!");
             }
-        }
+        }        
     }
 }

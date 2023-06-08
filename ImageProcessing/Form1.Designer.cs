@@ -54,11 +54,24 @@
             AnimationMenu_ExportGIFFrames = new ToolStripMenuItem();
             AnimationMenu_ModifyGIFFrameDelay = new ToolStripMenuItem();
             AnimationMenu_ModifyGIFFrameDelay_Textbox = new ToolStripTextBox();
+            AnimationMenu_ExportSpriteFromSpritesheet = new ToolStripMenuItem();
             ColorsMenu = new ToolStripMenuItem();
             ColorsMenu_FindAndReplaceColors = new ToolStripMenuItem();
             ViewPort = new PictureBox();
             bindingSource1 = new BindingSource(components);
             ViewPortPanel = new Panel();
+            AnimationMenu_ExportSpriteFromSpritesheet_Rows = new ToolStripMenuItem();
+            AnimationMenu_ExportSpriteFromSpritesheet_RowsTextbox = new ToolStripTextBox();
+            AnimationMenu_ExportSpriteFromSpritesheet_Columns = new ToolStripMenuItem();
+            AnimationMenu_ExportSpriteFromSpritesheet_ColumnsTextbox = new ToolStripTextBox();
+            AnimationMenu_ExportSpriteFromSpritesheet_Height = new ToolStripMenuItem();
+            AnimationMenu_ExportSpriteFromSpritesheet_HeightTextbox = new ToolStripTextBox();
+            AnimationMenu_ExportSpriteFromSpritesheet_Width = new ToolStripMenuItem();
+            AnimationMenu_ExportSpriteFromSpritesheet_WidthTextbox = new ToolStripTextBox();
+            AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacing = new ToolStripMenuItem();
+            AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacingTextbox = new ToolStripTextBox();
+            AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacing = new ToolStripMenuItem();
+            AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacingTextbox = new ToolStripTextBox();
             MenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ViewPort).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
@@ -125,26 +138,26 @@
             // ImageMenu_DecreaseBrightness
             // 
             ImageMenu_DecreaseBrightness.Name = "ImageMenu_DecreaseBrightness";
-            ImageMenu_DecreaseBrightness.Size = new Size(180, 22);
+            ImageMenu_DecreaseBrightness.Size = new Size(179, 22);
             ImageMenu_DecreaseBrightness.Text = "Decrease Brightness";
             ImageMenu_DecreaseBrightness.Click += decreaseBrightnessImageMenuStrip_Click;
             // 
             // ImageMenu_IncreaseBrightness
             // 
             ImageMenu_IncreaseBrightness.Name = "ImageMenu_IncreaseBrightness";
-            ImageMenu_IncreaseBrightness.Size = new Size(180, 22);
+            ImageMenu_IncreaseBrightness.Size = new Size(179, 22);
             ImageMenu_IncreaseBrightness.Text = "Increase Brightness";
             ImageMenu_IncreaseBrightness.Click += increaseBrightnessImageMenuStrip_Click;
             // 
             // ImageMenu_Separator1
             // 
             ImageMenu_Separator1.Name = "ImageMenu_Separator1";
-            ImageMenu_Separator1.Size = new Size(177, 6);
+            ImageMenu_Separator1.Size = new Size(176, 6);
             // 
             // ImageMenu_Grayscale
             // 
             ImageMenu_Grayscale.Name = "ImageMenu_Grayscale";
-            ImageMenu_Grayscale.Size = new Size(180, 22);
+            ImageMenu_Grayscale.Size = new Size(179, 22);
             ImageMenu_Grayscale.Text = "Grayscale";
             ImageMenu_Grayscale.ToolTipText = "Convert an image to a grayscale equivalent.";
             ImageMenu_Grayscale.Click += convertToGrayscaleToolStripMenuItem_Click;
@@ -152,7 +165,7 @@
             // ImageMenu_Negative
             // 
             ImageMenu_Negative.Name = "ImageMenu_Negative";
-            ImageMenu_Negative.Size = new Size(180, 22);
+            ImageMenu_Negative.Size = new Size(179, 22);
             ImageMenu_Negative.Text = "Negative";
             ImageMenu_Negative.ToolTipText = "Convert an image to a negative equivalent.";
             ImageMenu_Negative.Click += convertToNegativeMenuImageStrip_Click;
@@ -160,51 +173,51 @@
             // ImageMenu_Separator2
             // 
             ImageMenu_Separator2.Name = "ImageMenu_Separator2";
-            ImageMenu_Separator2.Size = new Size(177, 6);
+            ImageMenu_Separator2.Size = new Size(176, 6);
             // 
             // ImageMenu_Transform
             // 
             ImageMenu_Transform.DropDownItems.AddRange(new ToolStripItem[] { ImageMenu_Transform_FlipHorizontally, ImageMenu_Transform_FlipVertically, ImageMenu_Transform_Separator1, ImageMenu_Transform_RotatePlus90, ImageMenu_Transform_RotateMinus90 });
             ImageMenu_Transform.Name = "ImageMenu_Transform";
-            ImageMenu_Transform.Size = new Size(180, 22);
+            ImageMenu_Transform.Size = new Size(179, 22);
             ImageMenu_Transform.Text = "Transform";
             // 
             // ImageMenu_Transform_FlipHorizontally
             // 
             ImageMenu_Transform_FlipHorizontally.Name = "ImageMenu_Transform_FlipHorizontally";
-            ImageMenu_Transform_FlipHorizontally.Size = new Size(180, 22);
+            ImageMenu_Transform_FlipHorizontally.Size = new Size(160, 22);
             ImageMenu_Transform_FlipHorizontally.Text = "Flip Horizontally";
             ImageMenu_Transform_FlipHorizontally.Click += flipHorizontallyToolStripMenuItem_Click;
             // 
             // ImageMenu_Transform_FlipVertically
             // 
             ImageMenu_Transform_FlipVertically.Name = "ImageMenu_Transform_FlipVertically";
-            ImageMenu_Transform_FlipVertically.Size = new Size(180, 22);
+            ImageMenu_Transform_FlipVertically.Size = new Size(160, 22);
             ImageMenu_Transform_FlipVertically.Text = "Flip Vertically";
             ImageMenu_Transform_FlipVertically.Click += flipVerticallyToolStripMenuItem_Click;
             // 
             // ImageMenu_Transform_Separator1
             // 
             ImageMenu_Transform_Separator1.Name = "ImageMenu_Transform_Separator1";
-            ImageMenu_Transform_Separator1.Size = new Size(177, 6);
+            ImageMenu_Transform_Separator1.Size = new Size(157, 6);
             // 
             // ImageMenu_Transform_RotatePlus90
             // 
             ImageMenu_Transform_RotatePlus90.Name = "ImageMenu_Transform_RotatePlus90";
-            ImageMenu_Transform_RotatePlus90.Size = new Size(180, 22);
+            ImageMenu_Transform_RotatePlus90.Size = new Size(160, 22);
             ImageMenu_Transform_RotatePlus90.Text = "Rotate +90°";
             ImageMenu_Transform_RotatePlus90.Click += rotatePlus90ToolStripMenuItem_Click;
             // 
             // ImageMenu_Transform_RotateMinus90
             // 
             ImageMenu_Transform_RotateMinus90.Name = "ImageMenu_Transform_RotateMinus90";
-            ImageMenu_Transform_RotateMinus90.Size = new Size(180, 22);
+            ImageMenu_Transform_RotateMinus90.Size = new Size(160, 22);
             ImageMenu_Transform_RotateMinus90.Text = "Rotate -90°";
             ImageMenu_Transform_RotateMinus90.Click += rotateMinus90ToolStripMenuItem1_Click;
             // 
             // AnimationMenu
             // 
-            AnimationMenu.DropDownItems.AddRange(new ToolStripItem[] { AnimationMenu_CombineGIFFrames, AnimationMenu_ExportGIFFrames, AnimationMenu_ModifyGIFFrameDelay });
+            AnimationMenu.DropDownItems.AddRange(new ToolStripItem[] { AnimationMenu_CombineGIFFrames, AnimationMenu_ExportGIFFrames, AnimationMenu_ModifyGIFFrameDelay, AnimationMenu_ExportSpriteFromSpritesheet });
             AnimationMenu.Name = "AnimationMenu";
             AnimationMenu.Size = new Size(75, 20);
             AnimationMenu.Text = "Animation";
@@ -212,14 +225,14 @@
             // AnimationMenu_CombineGIFFrames
             // 
             AnimationMenu_CombineGIFFrames.Name = "AnimationMenu_CombineGIFFrames";
-            AnimationMenu_CombineGIFFrames.Size = new Size(200, 22);
+            AnimationMenu_CombineGIFFrames.Size = new Size(231, 22);
             AnimationMenu_CombineGIFFrames.Text = "Combine GIF Frames";
             AnimationMenu_CombineGIFFrames.Click += CombineFramesMenuFrameStrip_Click;
             // 
             // AnimationMenu_ExportGIFFrames
             // 
             AnimationMenu_ExportGIFFrames.Name = "AnimationMenu_ExportGIFFrames";
-            AnimationMenu_ExportGIFFrames.Size = new Size(200, 22);
+            AnimationMenu_ExportGIFFrames.Size = new Size(231, 22);
             AnimationMenu_ExportGIFFrames.Text = "Export GIF Frames";
             AnimationMenu_ExportGIFFrames.Click += exportFramesToolStripMenuItem_Click;
             // 
@@ -227,7 +240,7 @@
             // 
             AnimationMenu_ModifyGIFFrameDelay.DropDownItems.AddRange(new ToolStripItem[] { AnimationMenu_ModifyGIFFrameDelay_Textbox });
             AnimationMenu_ModifyGIFFrameDelay.Name = "AnimationMenu_ModifyGIFFrameDelay";
-            AnimationMenu_ModifyGIFFrameDelay.Size = new Size(200, 22);
+            AnimationMenu_ModifyGIFFrameDelay.Size = new Size(231, 22);
             AnimationMenu_ModifyGIFFrameDelay.Text = "Modify GIF Frame Delay";
             // 
             // AnimationMenu_ModifyGIFFrameDelay_Textbox
@@ -235,6 +248,14 @@
             AnimationMenu_ModifyGIFFrameDelay_Textbox.Name = "AnimationMenu_ModifyGIFFrameDelay_Textbox";
             AnimationMenu_ModifyGIFFrameDelay_Textbox.Size = new Size(100, 23);
             AnimationMenu_ModifyGIFFrameDelay_Textbox.Text = "4";
+            // 
+            // AnimationMenu_ExportSpriteFromSpritesheet
+            // 
+            AnimationMenu_ExportSpriteFromSpritesheet.DropDownItems.AddRange(new ToolStripItem[] { AnimationMenu_ExportSpriteFromSpritesheet_Rows, AnimationMenu_ExportSpriteFromSpritesheet_Columns, AnimationMenu_ExportSpriteFromSpritesheet_Height, AnimationMenu_ExportSpriteFromSpritesheet_Width, AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacing, AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacing });
+            AnimationMenu_ExportSpriteFromSpritesheet.Name = "AnimationMenu_ExportSpriteFromSpritesheet";
+            AnimationMenu_ExportSpriteFromSpritesheet.Size = new Size(231, 22);
+            AnimationMenu_ExportSpriteFromSpritesheet.Text = "Export Sprite from Spritesheet";
+            AnimationMenu_ExportSpriteFromSpritesheet.Click += AnimationMenu_ExportSpriteFromSpritesheet_Click;
             // 
             // ColorsMenu
             // 
@@ -272,6 +293,84 @@
             ViewPortPanel.Name = "ViewPortPanel";
             ViewPortPanel.Size = new Size(840, 640);
             ViewPortPanel.TabIndex = 13;
+            // 
+            // AnimationMenu_ExportSpriteFromSpritesheet_Rows
+            // 
+            AnimationMenu_ExportSpriteFromSpritesheet_Rows.DropDownItems.AddRange(new ToolStripItem[] { AnimationMenu_ExportSpriteFromSpritesheet_RowsTextbox });
+            AnimationMenu_ExportSpriteFromSpritesheet_Rows.Name = "AnimationMenu_ExportSpriteFromSpritesheet_Rows";
+            AnimationMenu_ExportSpriteFromSpritesheet_Rows.Size = new Size(180, 22);
+            AnimationMenu_ExportSpriteFromSpritesheet_Rows.Text = "Rows:";
+            // 
+            // AnimationMenu_ExportSpriteFromSpritesheet_RowsTextbox
+            // 
+            AnimationMenu_ExportSpriteFromSpritesheet_RowsTextbox.Name = "AnimationMenu_ExportSpriteFromSpritesheet_RowsTextbox";
+            AnimationMenu_ExportSpriteFromSpritesheet_RowsTextbox.Size = new Size(100, 23);
+            AnimationMenu_ExportSpriteFromSpritesheet_RowsTextbox.Text = "1";
+            // 
+            // AnimationMenu_ExportSpriteFromSpritesheet_Columns
+            // 
+            AnimationMenu_ExportSpriteFromSpritesheet_Columns.DropDownItems.AddRange(new ToolStripItem[] { AnimationMenu_ExportSpriteFromSpritesheet_ColumnsTextbox });
+            AnimationMenu_ExportSpriteFromSpritesheet_Columns.Name = "AnimationMenu_ExportSpriteFromSpritesheet_Columns";
+            AnimationMenu_ExportSpriteFromSpritesheet_Columns.Size = new Size(180, 22);
+            AnimationMenu_ExportSpriteFromSpritesheet_Columns.Text = "Columns:";
+            // 
+            // AnimationMenu_ExportSpriteFromSpritesheet_ColumnsTextbox
+            // 
+            AnimationMenu_ExportSpriteFromSpritesheet_ColumnsTextbox.Name = "AnimationMenu_ExportSpriteFromSpritesheet_ColumnsTextbox";
+            AnimationMenu_ExportSpriteFromSpritesheet_ColumnsTextbox.Size = new Size(100, 23);
+            AnimationMenu_ExportSpriteFromSpritesheet_ColumnsTextbox.Text = "1";
+            // 
+            // AnimationMenu_ExportSpriteFromSpritesheet_Height
+            // 
+            AnimationMenu_ExportSpriteFromSpritesheet_Height.DropDownItems.AddRange(new ToolStripItem[] { AnimationMenu_ExportSpriteFromSpritesheet_HeightTextbox });
+            AnimationMenu_ExportSpriteFromSpritesheet_Height.Name = "AnimationMenu_ExportSpriteFromSpritesheet_Height";
+            AnimationMenu_ExportSpriteFromSpritesheet_Height.Size = new Size(180, 22);
+            AnimationMenu_ExportSpriteFromSpritesheet_Height.Text = "Height:";
+            // 
+            // AnimationMenu_ExportSpriteFromSpritesheet_HeightTextbox
+            // 
+            AnimationMenu_ExportSpriteFromSpritesheet_HeightTextbox.Name = "AnimationMenu_ExportSpriteFromSpritesheet_HeightTextbox";
+            AnimationMenu_ExportSpriteFromSpritesheet_HeightTextbox.Size = new Size(100, 23);
+            AnimationMenu_ExportSpriteFromSpritesheet_HeightTextbox.Text = "1";
+            // 
+            // AnimationMenu_ExportSpriteFromSpritesheet_Width
+            // 
+            AnimationMenu_ExportSpriteFromSpritesheet_Width.DropDownItems.AddRange(new ToolStripItem[] { AnimationMenu_ExportSpriteFromSpritesheet_WidthTextbox });
+            AnimationMenu_ExportSpriteFromSpritesheet_Width.Name = "AnimationMenu_ExportSpriteFromSpritesheet_Width";
+            AnimationMenu_ExportSpriteFromSpritesheet_Width.Size = new Size(180, 22);
+            AnimationMenu_ExportSpriteFromSpritesheet_Width.Text = "Width:";
+            // 
+            // AnimationMenu_ExportSpriteFromSpritesheet_WidthTextbox
+            // 
+            AnimationMenu_ExportSpriteFromSpritesheet_WidthTextbox.Name = "AnimationMenu_ExportSpriteFromSpritesheet_WidthTextbox";
+            AnimationMenu_ExportSpriteFromSpritesheet_WidthTextbox.Size = new Size(100, 23);
+            AnimationMenu_ExportSpriteFromSpritesheet_WidthTextbox.Text = "1";
+            // 
+            // AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacing
+            // 
+            AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacing.DropDownItems.AddRange(new ToolStripItem[] { AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacingTextbox });
+            AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacing.Name = "AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacing";
+            AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacing.Size = new Size(180, 22);
+            AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacing.Text = "Horizontal Spacing:";
+            // 
+            // AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacingTextbox
+            // 
+            AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacingTextbox.Name = "AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacingTextbox";
+            AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacingTextbox.Size = new Size(100, 23);
+            AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacingTextbox.Text = "1";
+            // 
+            // AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacing
+            // 
+            AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacing.DropDownItems.AddRange(new ToolStripItem[] { AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacingTextbox });
+            AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacing.Name = "AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacing";
+            AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacing.Size = new Size(180, 22);
+            AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacing.Text = "Vertical Spacing:";
+            // 
+            // AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacingTextbox
+            // 
+            AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacingTextbox.Name = "AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacingTextbox";
+            AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacingTextbox.Size = new Size(100, 23);
+            AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacingTextbox.Text = "1";
             // 
             // Form1
             // 
@@ -324,5 +423,18 @@
         private Panel ViewPortPanel;
         private ToolStripMenuItem ColorsMenu;
         private ToolStripMenuItem ColorsMenu_FindAndReplaceColors;
+        private ToolStripMenuItem AnimationMenu_ExportSpriteFromSpritesheet;
+        private ToolStripMenuItem AnimationMenu_ExportSpriteFromSpritesheet_Rows;
+        private ToolStripTextBox AnimationMenu_ExportSpriteFromSpritesheet_RowsTextbox;
+        private ToolStripMenuItem AnimationMenu_ExportSpriteFromSpritesheet_Columns;
+        private ToolStripTextBox AnimationMenu_ExportSpriteFromSpritesheet_ColumnsTextbox;
+        private ToolStripMenuItem AnimationMenu_ExportSpriteFromSpritesheet_Height;
+        private ToolStripTextBox AnimationMenu_ExportSpriteFromSpritesheet_HeightTextbox;
+        private ToolStripMenuItem AnimationMenu_ExportSpriteFromSpritesheet_Width;
+        private ToolStripTextBox AnimationMenu_ExportSpriteFromSpritesheet_WidthTextbox;
+        private ToolStripMenuItem AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacing;
+        private ToolStripTextBox AnimationMenu_ExportSpriteFromSpritesheet_HorizontalSpacingTextbox;
+        private ToolStripMenuItem AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacing;
+        private ToolStripTextBox AnimationMenu_ExportSpriteFromSpritesheet_VerticalSpacingTextbox;
     }
 }
