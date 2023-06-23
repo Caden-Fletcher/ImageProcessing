@@ -26,6 +26,7 @@ namespace ImageProcessing
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     ViewPort.Image = new Bitmap(openFile.FileName);
+                    currentImageFilePath = openFile.FileName;
                 }
             }
             catch
@@ -289,11 +290,8 @@ namespace ImageProcessing
             using var images = new MagickImageCollection();
             images.Add(currentImageFilePath);
 
-            /*
-            var targetColor = MagickColor.FromRgb((byte)255, (byte)0, (byte)255); // Desired Color
-            images[0].Opaque(MagickColor.FromRgb((byte)255, (byte)255, (byte)255), // Color to Change
-                             MagickColor.FromRgb((byte)targetColor.R, (byte)targetColor.G, (byte)targetColor.B)); // Change the Color
-            */
+            // Import 2 CSV files here and loop through it to find and replace the desired colors
+            // Should the data be imported into an array or just sorted on the go?
 
             var targetColorOne = MagickColor.FromRgb((byte)247, (byte)15, (byte)15); // Red
             images[0].Opaque(MagickColor.FromRgb((byte)255, (byte)0, (byte)255), // Color to Change
